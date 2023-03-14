@@ -6,6 +6,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const mongoose = require("mongoose");
 const history = require("connect-history-api-fallback");
+const fileUpload = require("express-fileupload");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -15,6 +16,8 @@ var app = express();
 
 // view engine setup
 app.use(history());
+
+app.use(fileUpload());
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");

@@ -130,7 +130,7 @@ export default {
   data() {
     return {
       user: {
-        userid: "1",
+        userid: "",
         username: "",
         password: "",
         passwordcheck: "",
@@ -140,10 +140,6 @@ export default {
   },
   methods: {
     signUp: function () {
-      if (this.password !== this.passwordcheck) {
-        alert("비밀번호가 일치하지 않습니다.");
-        return;
-      }
       this.$axios
         .post("/users/api/signup", {
           user: this.user,

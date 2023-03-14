@@ -73,13 +73,12 @@ export default {
   },
   methods: {
     login: function () {
-      this.$router.push("/");
       this.$axios
         .post("/users/api/login", {
           user: this.user,
         })
         .then((res) => {
-          if (res.data.message == "Login successful!") {
+          if (res.data.success == true) {
             console.log(res.data);
             this.$store.commit("setUserInfo", res.data.userinfo);
             console.log(this.$store.getters.getUserRole);

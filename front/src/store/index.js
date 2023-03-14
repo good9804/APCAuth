@@ -6,8 +6,7 @@ const store = createStore({
   state: {
     loginUserId: "",
     loginUserName: "",
-    //loginUserRole: 2, //0 : admin, 1 : user, 2 : unauth
-    loginUserRole: 0,
+    loginUserRole: 2, //0 : admin, 1 : user, 2 : unauth
     AccessMode: 0, //0 : 권한 없음, 1 : 권한 있음
   },
   getters: {
