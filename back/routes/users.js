@@ -11,28 +11,47 @@ router.get("/", function (req, res, next) {
 });
 
 router.post("/api/signup", async (req, res) => {
-  const users = await User.findOne({ userid: req.body.user.userid });
-  console.log(req.body);
-  console.log(Number(req.body.user.submitrole));
-  if (users) {
+  if (
+    req.body.user.password == "" ||
+    req.body.user.passwordcheck == "" ||
+    req.body.user.username == "" ||
+    req.body.user.userid == ""
+  ) {
     res.json({
       success: false,
-      message: "Sign Up Failed Please use anoter ID",
+      message: "Fill the form!",
     });
   } else {
-    const salt = bcrypt.genSaltSync();
-    const encryptedPassword = bcrypt.hashSync(req.body.user.password, salt);
-    const new_users = new User({
-      userid: req.body.user.userid,
-      username: req.body.user.username,
-      password: encryptedPassword,
-      submitrole: req.body.user.submitrole,
-    });
-    await new_users.save();
-    res.json({
-      success: true,
-      message: "Sing Up Success!",
-    });
+    if (req.body.user.password != req.body.user.passwordcheck) {
+      res.json({
+        success: false,
+        message: "Check Password!",
+      });
+    } else {
+      const users = await User.findOne({ userid: req.body.user.userid });
+      console.log(req.body);
+      console.log(Number(req.body.user.submitrole));
+      if (users) {
+        res.json({
+          success: false,
+          message: "Sign Up Failed Please use anoter ID",
+        });
+      } else {
+        const salt = bcrypt.genSaltSync();
+        const encryptedPassword = bcrypt.hashSync(req.body.user.password, salt);
+        const new_users = new User({
+          userid: req.body.user.userid,
+          username: req.body.user.username,
+          password: encryptedPassword,
+          submitrole: req.body.user.submitrole,
+        });
+        await new_users.save();
+        res.json({
+          success: true,
+          message: "Sing Up Success!",
+        });
+      }
+    }
   }
 });
 
@@ -88,53 +107,66 @@ router.post("/api/decline", async (req, res) => {
 });
 
 router.post("/api/login", async (req, res) => {
-  const users = await User.findOne({ userid: req.body.user.userid });
-  if (users && users.role != 2) {
-    const validPassword = await bcrypt.compare(
-      req.body.user.password,
-      users.password
-    );
-    if (validPassword) {
-      //jwt.sign(payload, secretOrPrivateKey, [options, callback])
-      const accesstoken = jwt.sign(
-        {
-          userid: users.userid,
-        },
-        process.env.SECRET_KEY,
-        {
-          algorithm: "HS256",
-          expiresIn: "5s", // 만료시간 15분
-        }
-      );
-      const refreshtoken = jwt.sign({}, process.env.SECRET_KEY2, {
-        algorithm: "HS256",
-        expiresIn: "1h", // 만료시간 1시간
-      });
-      await User.findOneAndUpdate(
-        { userid: req.body.user.userid },
-        { refreshToken: refreshtoken }
-      );
-      res.cookie("accesstoken", accesstoken, { httpOnly: true });
-      res.cookie("refreshtoken", refreshtoken, { httpOnly: true });
-      res.json({
-        // 로그인 성공
-        message: "Login successful!",
-        userinfo: {
-          loginUserId: users.userid,
-          loginUserRole: users.role,
-        },
-      });
-    } else {
-      res.json({
-        message: "Login failed please check your id or password!",
-      });
-    }
-  } else {
+  if (req.body.user.password == "" || req.body.user.userid == "") {
     res.json({
       success: false,
-      message: "Login failed! or pending state",
+      message: "Fill the form!",
     });
+  } else {
+    const users = await User.findOne({ userid: req.body.user.userid });
+    if (users && users.role != 2) {
+      const validPassword = await bcrypt.compare(
+        req.body.user.password,
+        users.password
+      );
+      if (validPassword) {
+        //jwt.sign(payload, secretOrPrivateKey, [options, callback])
+        const accesstoken = jwt.sign(
+          {
+            userid: users.userid,
+          },
+          process.env.SECRET_KEY,
+          {
+            algorithm: "HS256",
+            expiresIn: "5s", // 만료시간 15분
+          }
+        );
+        const refreshtoken = jwt.sign({}, process.env.SECRET_KEY2, {
+          algorithm: "HS256",
+          expiresIn: "1h", // 만료시간 1시간
+        });
+        await User.findOneAndUpdate(
+          { userid: req.body.user.userid },
+          { refreshToken: refreshtoken }
+        );
+        res.cookie("accesstoken", accesstoken, { httpOnly: true });
+        res.cookie("refreshtoken", refreshtoken, { httpOnly: true });
+        res.json({
+          // 로그인 성공
+          success: true,
+          message: "Login Success!",
+          userinfo: {
+            loginUserId: users.userid,
+            loginUserRole: users.role,
+          },
+        });
+      } else {
+        res.json({
+          success: false,
+          message: "Login failed please check your id or password!",
+        });
+      }
+    } else {
+      res.json({
+        success: false,
+        message: "Login failed! or pending state",
+      });
+    }
   }
+});
+
+router.post("/api/upload/image", async (req, res) => {
+  res.send(req.files);
 });
 
 router.get("/api/logout", async (req, res) => {
