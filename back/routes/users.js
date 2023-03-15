@@ -165,10 +165,6 @@ router.post("/api/login", async (req, res) => {
   }
 });
 
-router.post("/api/upload/image", async (req, res) => {
-  res.send(req.files);
-});
-
 router.get("/api/logout", async (req, res) => {
   try {
     res.clearCookie("accesstoken");
