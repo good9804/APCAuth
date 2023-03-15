@@ -32,12 +32,36 @@
             <img :src="uploadFile" />
           </div>
         </div>
+        <div
+          class="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-white-700"
+        >
+          <div>
+            <button id="show-modal" @click="showModal = true">
+              Show Modal
+            </button>
+            <!-- use the modal component, pass in the prop -->
+            <ModalTool v-if="showModal" @close="showModal = false">
+              <!--
+       you can use custom content here to overwrite
+       default content
+       -->
+              <template v-slot:header>모달 창 제목</template>
+            </ModalTool>
+          </div>
+        </div>
+        <div
+          class="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-white-700"
+        >
+          카프카
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import ModalTool from "./Modal/ModalTool";
+
 import { Line } from "vue-chartjs";
 import {
   Chart as ChartJS,
@@ -62,9 +86,10 @@ ChartJS.register(
 
 export default {
   name: "LineChart",
-  components: { Line },
+  components: { Line, ModalTool },
   data() {
     return {
+      showModal: false,
       chartData: {
         labels: [
           "January",
@@ -90,6 +115,11 @@ export default {
       uploadFile: "",
     };
   },
+  mounted() {
+    // setTimeout(() => {
+    //   this.$router.go(this.$router.currentRoute); // 자동 새로고침
+    // }, 5000);
+  },
   methods: {
     onFileChange(event) {
       const selectedFile = event.target.files[0]; // accessing file
@@ -101,9 +131,10 @@ export default {
       formData.append("file", this.selectedFile); // appending file
       // sending file to the backend
       this.$axios
-        .post("/users/api/upload/image", formData)
+        .post("/images/api/upload", formData)
         .then((res) => {
-          this.uploadFile = this.arrayBufferToBase64(res.data.file.data.data);
+          console.log(res.data.imgdata.data);
+          this.uploadFile = this.arrayBufferToBase64(res.data.imgdata.data);
         })
         .catch((err) => {
           console.log(err);
