@@ -62,7 +62,9 @@ router.get("/api/pending", async (req, res) => {
 
 router.get("/api/view/users", async (req, res) => {
   try {
-    const refreshtoken = req.headers["cookie"].split(";")[1].substring(14);
+    const refreshtoken = getCookiesInfo(req.headers["cookie"].split(";"))[
+      "refreshtoken"
+    ];
     //유저 조회 admin 권한
     const admins = await User.findOne({ refreshToken: refreshtoken });
     const users = await User.find({ role: 1 });
@@ -218,7 +220,9 @@ router.post("/api/update", async (req, res) => {
 
 router.get("/api/verify/access", async (req, res, next) => {
   try {
-    const accesstoken = req.headers["cookie"].split(";")[0].substring(12);
+    const accesstoken = getCookiesInfo(req.headers["cookie"].split(";"))[
+      "accesstoken"
+    ];
     jwt.verify(accesstoken, process.env.SECRET_KEY);
     res.json({ message: "접속 성공" });
   } catch (err) {
@@ -228,7 +232,9 @@ router.get("/api/verify/access", async (req, res, next) => {
 
 router.get("/api/verify/refresh", async (req, res, next) => {
   try {
-    const refreshtoken = req.headers["cookie"].split(";")[1].substring(14);
+    const refreshtoken = getCookiesInfo(req.headers["cookie"].split(";"))[
+      "refreshtoken"
+    ];
     jwt.verify(refreshtoken, process.env.SECRET_KEY2);
     const users = await User.findOne({ refreshToken: refreshtoken });
     const accesstoken = jwt.sign(
@@ -257,4 +263,18 @@ router.get("/api/verify/refresh", async (req, res, next) => {
   }
 });
 
+function getCookiesInfo(cookie) {
+  const obj = {};
+  cookie.forEach((item) => {
+    // '='으로 분리
+    const elem = item.split("=");
+    // 키 가져오기
+    const key = elem[0].trim();
+    // 값 가져오기
+    const val = decodeURIComponent(elem[1]);
+    // 저장
+    obj[key] = val;
+  });
+  return obj;
+}
 module.exports = router;

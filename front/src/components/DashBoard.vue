@@ -52,7 +52,7 @@
         <div
           class="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-white-700"
         >
-          카프카
+          카프카(서버간의 통신이 가능할 경우) or fluentd(log 파일기반일 경우)
         </div>
       </div>
     </div>
