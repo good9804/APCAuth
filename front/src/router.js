@@ -21,19 +21,25 @@ const router = createRouter({
     {
       path: "/users/mypage",
       name: "UserPage",
-      component: () => import("@/components/console/MyPage"),
+      component: () => import("@/components/Console/MyPage"),
       meta: { requiresAuth: true },
     },
     {
       path: "/users/adminpage",
       name: "AdminPage",
-      component: () => import("@/components/console/AdminPage"),
+      component: () => import("@/components/Console/AdminPage"),
       meta: { requiresAdmin: true },
     },
     {
       path: "/dashboard",
       name: "dashboard",
       component: () => import("@/components/DashBoard"),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: "/product",
+      name: "product",
+      component: () => import("@/components/Product/ProductInfo"),
       meta: { requiresAuth: true },
     },
   ],
