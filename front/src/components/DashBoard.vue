@@ -18,6 +18,11 @@
         <div
           class="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-white-700"
         >
+          <label
+            for="countries"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Select an option</label
+          >
           <div class="file-upload">
             <input type="file" accept="image/*" @change="onFileChange" />
             <button
@@ -52,7 +57,7 @@
         <div
           class="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-white-700"
         >
-          카프카
+          카프카(서버간의 통신이 가능할 경우) or fluentd(log 파일기반일 경우)
         </div>
       </div>
     </div>
