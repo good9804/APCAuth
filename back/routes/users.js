@@ -55,12 +55,12 @@ router.post("/api/signup", async (req, res) => {
   }
 });
 
-router.get("/api/pending", async (req, res) => {
+router.get("/api/view/pending", async (req, res) => {
   const users = await User.find({ role: 2 });
   res.send(users);
 });
 
-router.get("/api/view/users", async (req, res) => {
+router.get("/api/view/info", async (req, res) => {
   try {
     const refreshtoken = getCookiesInfo(req.headers["cookie"].split(";"))[
       "refreshtoken"
@@ -70,7 +70,7 @@ router.get("/api/view/users", async (req, res) => {
     const users = await User.find({ role: 1 });
     if (admins.role === 0) res.send(users);
   } catch (err) {
-    res.send({ message: "재 로그인이 필요합니다." });
+    res.send({ message: "viewing Users Falied" });
   }
 });
 

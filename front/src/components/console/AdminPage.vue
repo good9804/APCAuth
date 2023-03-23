@@ -265,7 +265,7 @@ export default {
     },
     getUserList() {
       this.$axios
-        .get("/users/api/view/users", {})
+        .get("/users/api/view/info", {})
         .then((res) => {
           this.users = res.data;
         })
@@ -275,7 +275,7 @@ export default {
     },
     getPendingUserList() {
       this.$axios
-        .get("/users/api/pending", {})
+        .get("/users/api/view/pending", {})
         .then((res) => {
           this.pendingusers = res.data;
         })

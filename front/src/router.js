@@ -30,18 +30,6 @@ const router = createRouter({
       component: () => import("@/components/Console/AdminPage"),
       meta: { requiresAdmin: true },
     },
-    {
-      path: "/dashboard",
-      name: "dashboard",
-      component: () => import("@/components/DashBoard"),
-      meta: { requiresAuth: true },
-    },
-    {
-      path: "/product",
-      name: "product",
-      component: () => import("@/components/Product/ProductInfo"),
-      meta: { requiresAuth: true },
-    },
   ],
 });
 
