@@ -23,5 +23,6 @@ module.exports = defineConfig({
       },
     },
   },
+  assetsDir: "users",
   outputDir: "../back/public/",
 });

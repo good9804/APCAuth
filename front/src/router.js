@@ -5,6 +5,10 @@ const router = createRouter({
   routes: [
     //path별 component를 추가한다.
     {
+      path: "/",
+      redirect: "/users/",
+    },
+    {
       path: "/users/signup",
       name: "SignupPage",
       component: () => import("@/components/Login/SignupPage"),
@@ -15,11 +19,11 @@ const router = createRouter({
       component: () => import("@/components/Login/LoginPage"),
     },
     {
-      path: "/mypage", //mypage : admin console 이나 userpage로 이동하기위해 만듬
+      path: "/users/mypage", //mypage : admin console 이나 userpage로 이동하기위해 만듬
       meta: { requiresRole: true },
     },
     {
-      path: "/users/mypage",
+      path: "/users/usermypage",
       name: "UserPage",
       component: () => import("@/components/Console/MyPage"),
       meta: { requiresAuth: true },
@@ -29,18 +33,6 @@ const router = createRouter({
       name: "AdminPage",
       component: () => import("@/components/Console/AdminPage"),
       meta: { requiresAdmin: true },
-    },
-    {
-      path: "/dashboard",
-      name: "dashboard",
-      component: () => import("@/components/DashBoard"),
-      meta: { requiresAuth: true },
-    },
-    {
-      path: "/product",
-      name: "product",
-      component: () => import("@/components/Product/ProductInfo"),
-      meta: { requiresAuth: true },
     },
   ],
 });
@@ -76,7 +68,7 @@ router.beforeEach(async function (to, _, next) {
     if (role == 0) {
       next("/users/adminpage");
     } else if (role == 1) {
-      next("/users/mypage");
+      next("/users/usermypage");
     } else {
       alert("로그인 후 이용해주세요.");
       next("/users/login");
