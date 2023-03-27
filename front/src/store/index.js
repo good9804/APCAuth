@@ -8,6 +8,7 @@ const store = createStore({
     loginUserName: "",
     loginUserRole: 2, //0 : admin, 1 : user, 2 : unauth
     AccessMode: 0, //0 : 권한 없음, 1 : 권한 있음
+    AlertData: [],
   },
   getters: {
     getUserId(state) {
@@ -18,6 +19,9 @@ const store = createStore({
     },
     getAccessMode(state) {
       return state.AccessMode;
+    },
+    getAlertData(state) {
+      return state.AlertData;
     },
   },
   mutations: {
@@ -37,6 +41,33 @@ const store = createStore({
     },
     setAccessMode(state, payload) {
       state.AccessMode = payload;
+    },
+    setAlertData(state, payload) {
+      state.AlertData.push(payload);
+    },
+    insertAlertData(state, payload) {
+      state.AlertData.push({ index: state.AlertData.length, content: payload });
+      var contents = []; //index vuex -> 로컬스토리지 적용부분 2
+      state.AlertData.forEach(function (item) {
+        //index vuex -> 로컬스토리지 적용부분 3
+        contents.push(item["content"]);
+      });
+      localStorage.setItem("contents", contents); //index vuex -> 로컬스토리지 적용부분 4
+    },
+    deleteAlertData(state, payload) {
+      state.AlertData.splice(payload, 1);
+      var contents = [];
+      state.AlertData.forEach(function (item) {
+        contents.push(item["content"]);
+      });
+      state.AlertData = [];
+      contents.forEach(function (item, index) {
+        state.AlertData.push({ index: index, content: item });
+      });
+      console.log(state.AlertData);
+    },
+    clearAlertData(state) {
+      state.AlertData = [];
     },
   },
   actions: {
@@ -96,6 +127,17 @@ const store = createStore({
           alert(err);
         });
     },
+    async getAlert(context) {
+      const contents = await localStorage.getItem("contents").split(",");
+      context.commit("clearAlertData", 0);
+      if (contents[0] == "") return;
+      await Array.from(contents).forEach(function (item, index) {
+        context.commit("setAlertData", { index: index, content: item });
+      });
+    },
+    async deleteAlert(context, index) {
+      await context.commit("deleteAlertData", index);
+    },
   },
 });
 
@@ -108,3 +150,5 @@ export default store;
 // });
 // console.log(this.$store.getters.getUserInfo);
 // this.$store.dispatch('getData');
+
+//this.$store.commit("insertAlertData", "알림 내용 적기");

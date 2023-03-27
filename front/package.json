@@ -15,6 +15,7 @@
     "flowbite": "^1.6.3",
     "js-cookie": "^3.0.1",
     "material-design-icons-iconfont": "^6.7.0",
+    "mitt": "^3.0.0",
     "sass": "^1.58.3",
     "sass-loader": "^13.2.0",
     "vue": "^3.2.13",
