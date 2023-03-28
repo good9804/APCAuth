@@ -40,6 +40,33 @@ const router = createRouter({
 import store from "./store/index";
 
 router.beforeEach(async function (to, _, next) {
+  localStorage.setItem("contents", [
+    "2023_03_28 고장 기능 이상 사과쪽 아니면 배쪽",
+    333333333333333333,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    4,
+    5,
+    6,
+    7,
+  ]);
   await store.dispatch("refresh");
   await store.dispatch("getAlert");
   if (to.meta.requiresAuth) {

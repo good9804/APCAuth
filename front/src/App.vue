@@ -8,7 +8,6 @@
       </div>
       <div>
         <router-view />
-        <AlertTool></AlertTool>
       </div>
     </div>
   </html>
@@ -16,13 +15,11 @@
 
 <script>
 import Navbar from "@/components/NavBar.vue";
-import AlertTool from "@/components/Alert/AlertTool.vue";
 
 export default {
   name: "App",
   components: {
     Navbar,
-    AlertTool,
   },
   data: () => ({}),
   methods: {
