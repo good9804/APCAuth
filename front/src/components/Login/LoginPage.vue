@@ -73,6 +73,7 @@ export default {
   },
   methods: {
     login: function () {
+      this.$emitter.emit("eventMethod", "event 전송");
       this.$axios
         .post("/users/api/login", {
           user: this.user,

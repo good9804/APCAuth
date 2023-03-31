@@ -15,6 +15,7 @@
     "express-fileupload": "^1.4.0",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^9.0.0",
+    "kafkajs": "^2.2.4",
     "mongoose": "^7.0.0",
     "morgan": "~1.9.1",
     "pug": "^3.0.2"

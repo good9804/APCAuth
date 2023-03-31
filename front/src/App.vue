@@ -22,7 +22,23 @@ export default {
     Navbar,
   },
   data: () => ({}),
-  methods: {},
-  mounted() {},
+  methods: {
+    // [실시간 이벤트 버스 알림 받기 함수 정의 실시]
+    eventMethod: function (name) {
+      console.log("");
+      console.log("[App] : [eventMethod] : [start]");
+      console.log("name : " + name);
+      console.log("");
+    },
+  },
+  mounted() {
+    console.log("");
+    console.log("[App] : [mounted] : [start]");
+    console.log("설 명 : DOM 렌더링 완료");
+    console.log("");
+
+    // [이벤트 버스 알림 받기 등록]
+    this.$emitter.on("eventMethod", this.eventMethod);
+  },
 };
 </script>
