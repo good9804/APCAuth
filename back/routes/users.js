@@ -195,7 +195,6 @@ router.post("/api/update", async (req, res) => {
       await User.findOneAndUpdate(
         { userid: req.body.user.userid },
         {
-          userid: req.body.user.userid,
           username: req.body.user.username,
           password: encryptedPassword,
         }
