@@ -46,19 +46,28 @@ const store = createStore({
       state.AlertData.push(payload);
     },
     insertAlertData(state, payload) {
-      state.AlertData.push({ index: state.AlertData.length, content: payload });
-      var contents = []; //index vuex -> 로컬스토리지 적용부분 2
+      var contents = [];
+      contents.push(payload);
       state.AlertData.forEach(function (item) {
-        //index vuex -> 로컬스토리지 적용부분 3
-        contents.push(item["content"]);
+        if (contents.includes(item["content"]) == false) {
+          //이미 콘텐츠 안에 같은 것이 있다면
+          contents.push(item["content"]);
+        }
       });
-      localStorage.setItem("contents", contents); //index vuex -> 로컬스토리지 적용부분 4
+      state.AlertData = [];
+      contents.forEach(function (item, index) {
+        state.AlertData.push({ index: index, content: item });
+      });
+      console.log(state.AlertData);
     },
     deleteAlertData(state, payload) {
       state.AlertData.splice(payload, 1);
       var contents = [];
       state.AlertData.forEach(function (item) {
-        contents.push(item["content"]);
+        if (contents.includes(item["content"]) == false) {
+          //이미 콘텐츠 안에 같은 것이 있다면
+          contents.push(item["content"]);
+        }
       });
       state.AlertData = [];
       contents.forEach(function (item, index) {

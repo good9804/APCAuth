@@ -67,7 +67,7 @@ router.get("/api/view/info", async (req, res) => {
     ];
     //유저 조회 admin 권한
     const admins = await User.findOne({ refreshToken: refreshtoken });
-    const users = await User.find({ role: 1 });
+    const users = await User.find({});
     if (admins.role === 0) res.send(users);
   } catch (err) {
     res.send({ message: "viewing Users Falied" });
