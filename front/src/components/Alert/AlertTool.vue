@@ -1,7 +1,7 @@
 <template>
   <div>
     <tr v-for="Data in AlertData" :key="Data.idx">
-      <div class="w-[900px]">
+      <div class="w-[1600px]">
         <div
           class="flex p-4 mb-4 text-xl text-white-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-white dark:border-red-800"
           role="alert"
