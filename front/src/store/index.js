@@ -137,12 +137,17 @@ const store = createStore({
         });
     },
     async getAlert(context) {
-      const contents = await localStorage.getItem("contents").split(",");
-      context.commit("clearAlertData", 0);
-      if (contents[0] == "") return;
-      await Array.from(contents).forEach(function (item, index) {
-        context.commit("setAlertData", { index: index, content: item });
-      });
+      try {
+        const contents = await localStorage.getItem("contents").split(",");
+        context.commit("clearAlertData", 0);
+        if (contents[0] == "") return;
+        await Array.from(contents).forEach(function (item, index) {
+          context.commit("setAlertData", { index: index, content: item });
+        });
+      } catch (err) {
+        context.commit("clearAlertData", 0);
+        return;
+      }
     },
     async deleteAlert(context, index) {
       await context.commit("deleteAlertData", index);
