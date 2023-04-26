@@ -152,6 +152,9 @@ const store = createStore({
     async deleteAlert(context, index) {
       await context.commit("deleteAlertData", index);
     },
+    async deleteAllAlert(context) {
+      await context.commit("clearAlertData", 0);
+    },
   },
 });
 

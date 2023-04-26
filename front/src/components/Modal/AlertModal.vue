@@ -22,6 +22,12 @@
                   >
                     닫기
                   </button>
+                  <button
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xl px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                    @click="deleteAllAlert"
+                  >
+                    모두 삭제
+                  </button>
                 </div>
               </div>
             </div>
@@ -40,6 +46,22 @@ import AlertTool from "../Alert/AlertTool";
 export default {
   components: {
     AlertTool,
+  },
+  methods: {
+    deleteAllAlert() {
+      //알람 전부 삭제
+      this.$store.dispatch("deleteAllAlert");
+      this.changeLocalStorage();
+    },
+    changeLocalStorage() {
+      const contentsArray = this.$store.getters.getAlertData; //index vuex -> 로컬스토리지 적용부분 1
+      var contents = []; //index vuex -> 로컬스토리지 적용부분 2
+      contentsArray.forEach(function (item) {
+        //index vuex -> 로컬스토리지 적용부분 3
+        contents.push(item["content"]);
+      });
+      localStorage.setItem("contents", contents); //index vuex -> 로컬스토리지 적용부분 4
+    },
   },
 };
 </script>

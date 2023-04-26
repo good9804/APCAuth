@@ -19,106 +19,341 @@
                 <h5
                   class="text-2xl text-center font-bold leading-none text-gray-900 dark:text-white pb-5 border-gray-600 border-b"
                 >
-                  🙍내 정보 수정
-                </h5>
-                <div class="relative z-0 mb-6 w-full group">
-                  <input
-                    id="floating_name"
-                    v-model="user.userid"
-                    class="block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-blue-400 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    name="floating_name"
-                    placeholder=" "
-                    required=""
-                    type="text"
-                  />
-                  <label
-                    class="peer-focus:font-medium absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    for="floating_nmae"
-                  >
-                    아이디
-                  </label>
-                </div>
-                <div class="relative z-0 mb-6 w-full group">
-                  <input
-                    id="floating_name"
-                    v-model="user.username"
-                    class="block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-blue-400 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    name="floating_name"
-                    placeholder=" "
-                    required=""
-                    type="text"
-                  />
-                  <label
-                    class="peer-focus:font-medium absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    for="floating_nmae"
-                  >
-                    이름
-                  </label>
-                </div>
-                <div class="relative z-0 mb-6 w-full group">
-                  <input
-                    type="password"
-                    name="floating_password"
-                    id="floating_password"
-                    class="block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    required=""
-                    v-model="user.password"
-                  />
-                  <label
-                    class="peer-focus:font-medium absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    for="floating_password"
-                  >
-                    현재 패스워드</label
-                  >
-                </div>
-
-                <div class="relative z-0 mb-6 w-full group">
-                  <input
-                    type="password"
-                    name="floating_updatepassword"
-                    id="floating_updatepassword"
-                    class="block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    required=""
-                    v-model="user.updatepassword"
-                  />
-                  <label
-                    class="peer-focus:font-medium absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    for="floating_updatepassword"
-                  >
-                    변경 패스워드</label
-                  >
-                </div>
-
-                <div class="relative z-0 mb-6 w-full group">
-                  <input
-                    type="password"
-                    name="repeat_updatepasswordcheck"
-                    id="floating_repeat_updatepasswordcheck"
-                    class="block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    required=""
-                    v-model="user.updatepasswordcheck"
-                  />
-                  <label
-                    for="floating_repeat_updatepasswordcheck"
-                    class="peer-focus:font-medium absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  >
-                    비밀번호 확인
-                  </label>
-                </div>
-                <div class="flex-wrap gap-6">
-                  <button
-                    class="relative inline-flex p-0.5 mb-2 mr-2 overflow-hidden text-xl font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
-                    v-on:click="submitUpdateUserInfo"
-                  >
-                    <span
-                      class="relative px-5 py-2.5 transition-all ease-in duration-75 rounded-md group-hover:bg-opacity-0"
+                  <div class="flex-wrap gap-6">
+                    <button
+                      class="relative inline-flex p-0.5 mb-2 mr-2 overflow-hidden text-xl font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
+                      v-on:click="toManageInfoMode"
                     >
-                      수정
-                    </span>
-                  </button>
+                      <span
+                        class="relative px-5 py-2.5 transition-all ease-in duration-75 rounded-md group-hover:bg-opacity-0"
+                      >
+                        내 정보 수정
+                      </span>
+                    </button>
+                    <button
+                      class="relative inline-flex p-0.5 mb-2 mr-2 overflow-hidden text-xl font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
+                      v-on:click="toViewImportHistory"
+                    >
+                      <span
+                        class="relative px-5 py-2.5 transition-all ease-in duration-75 rounded-md group-hover:bg-opacity-0"
+                      >
+                        입고 결과
+                      </span>
+                    </button>
+                  </div>
+                </h5>
+
+                <div v-if="userEditMode == 'manageInfo'">
+                  <div id="approvalContainer" class="relative sm:rounded-lg">
+                    <div
+                      class="p-4 bg-white border rounded-lg sm:p-8 dark:bg-gray-800 dark:border-gray-700 flex flex-col gap-5"
+                    >
+                      <h5
+                        class="text-2xl text-center font-bold leading-none text-gray-900 dark:text-white pb-5 border-gray-600 border-b"
+                      >
+                        내 정보 수정
+                      </h5>
+                      <div class="relative z-0 mb-6 w-full group">
+                        <input
+                          id="floating_id"
+                          v-model="user.userid"
+                          class="block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-blue-400 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                          name="floating_id"
+                          placeholder=" "
+                          required=""
+                          type="text"
+                        />
+                        <label
+                          class="peer-focus:font-medium absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                          for="floating_id"
+                        >
+                          아이디
+                        </label>
+                      </div>
+                      <div class="relative z-0 mb-6 w-full group">
+                        <input
+                          id="floating_name"
+                          v-model="user.username"
+                          class="block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-blue-400 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                          name="floating_name"
+                          placeholder=" "
+                          required=""
+                          type="text"
+                        />
+                        <label
+                          class="peer-focus:font-medium absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                          for="floating_nmae"
+                        >
+                          이름
+                        </label>
+                      </div>
+                      <div class="relative z-0 mb-6 w-full group">
+                        <input
+                          type="password"
+                          name="floating_password"
+                          id="floating_password"
+                          class="block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                          placeholder=" "
+                          required=""
+                          v-model="user.password"
+                        />
+                        <label
+                          class="peer-focus:font-medium absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                          for="floating_password"
+                        >
+                          현재 패스워드</label
+                        >
+                      </div>
+
+                      <div class="relative z-0 mb-6 w-full group">
+                        <input
+                          type="password"
+                          name="floating_updatepassword"
+                          id="floating_updatepassword"
+                          class="block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                          placeholder=" "
+                          required=""
+                          v-model="user.updatepassword"
+                        />
+                        <label
+                          class="peer-focus:font-medium absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                          for="floating_updatepassword"
+                        >
+                          변경 패스워드</label
+                        >
+                      </div>
+
+                      <div class="relative z-0 mb-6 w-full group">
+                        <input
+                          type="password"
+                          name="repeat_updatepasswordcheck"
+                          id="floating_repeat_updatepasswordcheck"
+                          class="block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                          placeholder=" "
+                          required=""
+                          v-model="user.updatepasswordcheck"
+                        />
+                        <label
+                          for="floating_repeat_updatepasswordcheck"
+                          class="peer-focus:font-medium absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        >
+                          비밀번호 확인
+                        </label>
+                      </div>
+                      <div class="flex-wrap gap-6">
+                        <button
+                          class="relative inline-flex p-0.5 mb-2 mr-2 overflow-hidden text-xl font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
+                          v-on:click="submitUpdateUserInfo"
+                        >
+                          <span
+                            class="relative px-5 py-2.5 transition-all ease-in duration-75 rounded-md group-hover:bg-opacity-0"
+                          >
+                            수정
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div v-if="userEditMode == 'importHistory'">
+                  <div id="approvalContainer" class="relative sm:rounded-lg">
+                    <div
+                      class="p-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14"
+                    >
+                      <div
+                        class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                      >
+                        <div
+                          class="text-2xl font-bold text-center text-gray-500 divide-x divide-gray-200 rounded-lg sm:flex dark:divide-gray-600 dark:text-white"
+                          id="fullWidthTab"
+                        >
+                          <div
+                            id="stats-tab"
+                            class="inline-block w-full p-4 rounded-tl-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600"
+                          >
+                            날짜 : {{ selectedHistory.createdAt }}
+                          </div>
+                        </div>
+                        <div
+                          id="fullWidthTabContent"
+                          class="border-t border-gray-200 dark:border-gray-600"
+                        >
+                          <dl
+                            class="grid max-w-screen-xl grid-cols-2 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-3 xl:grid-cols-3 dark:text-white sm:p-8"
+                          >
+                            <div
+                              class="flex flex-col items-center justify-center"
+                            >
+                              <dt class="mb-2 text-3xl font-extrabold">품목</dt>
+                              <dd class="text-xl text-gray-500 dark:text-white">
+                                {{ selectedHistory.item }}
+                              </dd>
+                            </div>
+                            <div
+                              class="flex flex-col items-center justify-center"
+                            >
+                              <dt class="mb-2 text-3xl font-extrabold">품종</dt>
+                              <dd class="text-xl text-gray-500 dark:text-white">
+                                {{ selectedHistory.kind }}
+                              </dd>
+                            </div>
+                            <div
+                              class="flex flex-col items-center justify-center"
+                            >
+                              <dt class="mb-2 text-3xl font-extrabold">
+                                평균 무게
+                              </dt>
+                              <dd class="text-xl text-gray-500 dark:text-white">
+                                {{ selectedHistory.weight }}
+                              </dd>
+                            </div>
+                            <div
+                              class="flex flex-col items-center justify-center"
+                            >
+                              <dt class="mb-2 text-3xl font-extrabold">경도</dt>
+                              <dd class="text-xl text-gray-500 dark:text-white">
+                                {{ selectedHistory.hardness }} KG
+                              </dd>
+                            </div>
+                            <div
+                              class="flex flex-col items-center justify-center"
+                            >
+                              <dt class="mb-2 text-3xl font-extrabold">당도</dt>
+                              <dd class="text-xl text-gray-500 dark:text-white">
+                                {{ selectedHistory.brix }}
+                              </dd>
+                            </div>
+                            <div
+                              class="flex flex-col items-center justify-center"
+                            >
+                              <dt class="mb-2 text-3xl font-extrabold">산도</dt>
+                              <dd class="text-xl text-gray-500 dark:text-white">
+                                {{ selectedHistory.acidity }}
+                              </dd>
+                            </div>
+                            <div
+                              class="flex flex-col items-center justify-center"
+                            >
+                              <dt class="mb-2 text-3xl font-extrabold">
+                                색상(Hunter L)
+                              </dt>
+                              <dd class="text-xl text-gray-500 dark:text-white">
+                                {{ selectedHistory.color }}
+                              </dd>
+                            </div>
+                            <div
+                              class="flex flex-col items-center justify-center"
+                            >
+                              <dt class="mb-2 text-3xl font-extrabold">
+                                A 등급
+                              </dt>
+                              <dd class="text-xl text-gray-500 dark:text-white">
+                                {{ selectedHistory.grade_A }}
+                              </dd>
+                            </div>
+                            <div
+                              class="flex flex-col items-center justify-center"
+                            >
+                              <dt class="mb-2 text-3xl font-extrabold">
+                                B 등급
+                              </dt>
+                              <dd class="text-xl text-gray-500 dark:text-white">
+                                {{ selectedHistory.grade_B }}
+                              </dd>
+                            </div>
+                            <div
+                              class="flex flex-col items-center justify-center"
+                            >
+                              <dt class="mb-2 text-3xl font-extrabold">
+                                C 등급
+                              </dt>
+                              <dd class="text-xl text-gray-500 dark:text-white">
+                                {{ selectedHistory.grade_C }}
+                              </dd>
+                            </div>
+                            <div
+                              class="flex flex-col items-center justify-center"
+                            >
+                              <dt class="mb-2 text-3xl font-extrabold">
+                                D 등급
+                              </dt>
+                              <dd class="text-xl text-gray-500 dark:text-white">
+                                {{ selectedHistory.grade_D }}
+                              </dd>
+                            </div>
+                            <div
+                              class="flex flex-col items-center justify-center"
+                            >
+                              <dt class="mb-2 text-3xl font-extrabold">
+                                E 등급
+                              </dt>
+                              <dd class="text-xl text-gray-500 dark:text-white">
+                                {{ selectedHistory.grade_E }}
+                              </dd>
+                            </div>
+                          </dl>
+                        </div>
+                      </div>
+                      <div class="flex flex-row-2">
+                        <div
+                          class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+                        >
+                          <DatePicker v-model="date" mode="date" />
+                        </div>
+                        <div
+                          class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+                        >
+                          <div
+                            id="imagelist"
+                            class="relative max-h-96 overflow-y-scroll sm:rounded-lg"
+                          >
+                            <table
+                              class="my-3 w-full text-sm text-left text-gray-500 dark:text-gray-400"
+                            >
+                              <thead
+                                class="text-2xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+                              >
+                                <tr>
+                                  <th
+                                    scope="col"
+                                    class="text-center text-white py-3 px-6"
+                                  >
+                                    목록
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr
+                                  v-for="history in importHistoryList"
+                                  :key="history.idx"
+                                  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                                >
+                                  <th
+                                    scope="row"
+                                    class="py-4 px-6 text-2xl font-bold text-gray-900 text-center whitespace-nowrap dark:text-white"
+                                  >
+                                    입고 처리 날짜 :
+                                    {{ history.createdAt }}
+                                    <button
+                                      v-on:click="viewHistory(history)"
+                                      class="relative text-2xl inline-flex items-center justify-center overflow-hidden text-2xl font-bold text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800"
+                                    >
+                                      <span
+                                        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
+                                      >
+                                        확인
+                                      </span>
+                                    </button>
+                                  </th>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -133,7 +368,29 @@
 export default {
   name: "app",
   components: {},
+  data() {
+    return {
+      user: {
+        userid: "",
+        username: "",
+        password: "",
+        updatepassword: "",
+        updatepasswordcheck: "",
+      },
+      userEditMode: "manageInfo",
+      ImportHistoryList: [],
+      allimportHistoryList: [],
+      selectedHistory: {},
+      date: new Date(),
+    };
+  },
   methods: {
+    toManageInfoMode() {
+      this.userEditMode = "manageInfo";
+    },
+    toViewImportHistory() {
+      this.userEditMode = "importHistory";
+    },
     submitUpdateUserInfo() {
       if (this.user.updatepassword !== this.user.updatepasswordcheck) {
         alert("비밀번호가 일치하지 않습니다.");
@@ -148,18 +405,52 @@ export default {
           alert(err);
         });
     },
+    getImportHistoryList() {
+      this.$axios
+        .post("/users/api/import/view", {
+          userid: this.$store.getters.getUserId,
+          loginUserRole: this.$store.getters.getUserRole,
+        })
+        .then((res) => {
+          res.data.importHistoryList.forEach((element) => {
+            element["createdAt"] = this.formatDate(element["createdAt"]);
+          });
+          this.importHistoryList = res.data.importHistoryList;
+          this.allimportHistoryList = res.data.importHistoryList;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    formatDate(date) {
+      var d = new Date(date);
+      var month = "" + (d.getMonth() + 1);
+      var day = "" + d.getDate();
+      var year = d.getFullYear();
+
+      if (month.length < 2) month = "0" + month;
+      if (day.length < 2) day = "0" + day;
+
+      return [year, month, day].join("-");
+    },
+    viewHistory(history) {
+      this.selectedHistory = history;
+    },
   },
-  created() {},
-  data() {
-    return {
-      user: {
-        userid: "",
-        username: "",
-        password: "",
-        updatepassword: "",
-        updatepasswordcheck: "",
-      },
-    };
+  watch: {
+    //vuex 변수의 값이 변함을 감지하는 곳
+    date() {
+      this.importHistoryList = [];
+      this.allimportHistoryList.forEach((element) => {
+        if (this.formatDate(element.createdAt) == this.formatDate(this.date)) {
+          this.importHistoryList.push(element);
+        }
+      });
+      console.log(this.importHistoryList);
+    },
+  },
+  mounted() {
+    this.getImportHistoryList();
   },
 };
 </script>

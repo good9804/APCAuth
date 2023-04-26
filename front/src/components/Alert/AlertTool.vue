@@ -57,6 +57,7 @@ export default {
   }),
   methods: {
     Close(contentindex) {
+      //알람삭제
       this.$store.dispatch("deleteAlert", contentindex);
       this.changeLocalStorage();
     },

@@ -78,7 +78,7 @@ router.post("/api/delete", async (req, res) => {
   //유저 삭제
   try {
     await User.deleteOne({ userid: req.body.user.userid });
-    const users = await User.find({ role: 1 });
+    const users = await User.find({});
     res.send(users);
   } catch (err) {
     res.send(err);
@@ -259,6 +259,16 @@ router.get("/api/verify/refresh", async (req, res, next) => {
     res.json({ message: "유효기간 만료 되어 재발급합니다.", user: users });
   } catch (err) {
     res.send({ message: "재 로그인이 필요합니다." });
+  }
+});
+
+router.post("/api/import/view", async (req, res) => {
+  try {
+    var userinfo;
+    userinfo = await User.find({ userid: req.body.userid });
+    res.json({ importHistoryList: userinfo[0].import_history });
+  } catch (err) {
+    res.send(err);
   }
 });
 
