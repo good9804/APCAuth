@@ -39,3 +39,9 @@ Linux(Ubuntu 22.04 LTS) : start.sh 실행
 localhost 접속
 
 ---
+---
+
+초기 관리자 아아디 : 1
+초기 관리자 비밀번호 : 1
+
+---
