@@ -1,5 +1,7 @@
 #시작
 
+Kanban 주소 : https://trello.com/b/XkgyfCf6/apc-kanban
+
 ---
 
 ## mongodb 다운로드(윈도우 기준)
