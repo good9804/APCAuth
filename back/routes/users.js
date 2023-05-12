@@ -145,60 +145,6 @@ router.post("/api/login", async (req, res) => {
           { refreshToken: refreshtoken }
         );
 
-        var url =
-          "http://data.naqs.go.kr/openapi/services/rest/FrmprdHistManageInfoInqireSvc/getGoodsAttrbInfoInqire"; /*URL*/
-        var queryParams =
-          "?" +
-          encodeURIComponent("serviceKey") +
-          "=" +
-          "DwrUTa6PFAjNeMuw8LcmpTeOD8AcBJb6pxu43DZo7NxKfQWlNUYh%2FZdoW8afVnB%2BeqtHxWevizngU9Wwm9X1OQ%3D%3D"; /*Service Key*/
-        queryParams +=
-          "&" +
-          encodeURIComponent("tra_mng_no") +
-          "=" +
-          encodeURIComponent("003178111111"); /**/
-        queryParams +=
-          "&" +
-          encodeURIComponent("gds_seq") +
-          "=" +
-          encodeURIComponent("2"); /**/
-        queryParams +=
-          "&" +
-          encodeURIComponent("mng_dvs") +
-          "=" +
-          encodeURIComponent("10"); /**/
-        url += queryParams;
-        await axios
-          .get(url, {})
-          .then((res) => {
-            parser.parseString(res.data, function (err, result) {
-              console.log(err);
-              console.log(JSON.stringify(result.response.body));
-              var keys = Object.keys(result.response.body[0].items[0].item[0]); //키를 가져옵니다.
-              console.log(keys.length);
-              result.response.body[0].items[0].item.forEach(
-                (element1, index) => {
-                  var keys = Object.keys(element1); //키를 가져옵니다.
-                  console.log(index + 1 + "번째");
-
-                  keys.forEach((element2, index) => {
-                    if (element1[element2] != "") {
-                      console.log(
-                        "key : " +
-                          element2 +
-                          " || value : " +
-                          element1[element2]
-                      );
-                    }
-                  });
-                }
-              );
-            });
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-
         res.cookie("accesstoken", accesstoken, { httpOnly: true });
         res.cookie("refreshtoken", refreshtoken, { httpOnly: true });
         res.json({
