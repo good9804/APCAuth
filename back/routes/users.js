@@ -4,9 +4,6 @@ var router = express.Router();
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const axios = require("axios");
-const xml2js = require("xml2js");
-const parser = new xml2js.Parser(/* options */);
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
