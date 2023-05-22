@@ -43,7 +43,7 @@
                   </div>
                 </h5>
 
-                <div v-if="userEditMode == 'manageInfo'">
+                <div v-if="user_edit_mode == 'manageInfo'">
                   <div id="approvalContainer" class="relative sm:rounded-lg">
                     <div
                       class="p-4 bg-white border rounded-lg sm:p-8 dark:bg-gray-800 dark:border-gray-700 flex flex-col gap-5"
@@ -56,7 +56,7 @@
                       <div class="relative z-0 mb-6 w-full group">
                         <input
                           id="floating_id"
-                          v-model="user.userid"
+                          v-model="user.user_id"
                           class="block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-blue-400 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                           name="floating_id"
                           placeholder=" "
@@ -73,7 +73,7 @@
                       <div class="relative z-0 mb-6 w-full group">
                         <input
                           id="floating_name"
-                          v-model="user.username"
+                          v-model="user.user_name"
                           class="block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-blue-400 dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                           name="floating_name"
                           placeholder=" "
@@ -108,16 +108,16 @@
                       <div class="relative z-0 mb-6 w-full group">
                         <input
                           type="password"
-                          name="floating_updatepassword"
-                          id="floating_updatepassword"
+                          name="floating_update_password"
+                          id="floating_update_password"
                           class="block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                           placeholder=" "
                           required=""
-                          v-model="user.updatepassword"
+                          v-model="user.update_password"
                         />
                         <label
                           class="peer-focus:font-medium absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                          for="floating_updatepassword"
+                          for="floating_update_password"
                         >
                           변경 패스워드</label
                         >
@@ -126,15 +126,15 @@
                       <div class="relative z-0 mb-6 w-full group">
                         <input
                           type="password"
-                          name="repeat_updatepasswordcheck"
-                          id="floating_repeat_updatepasswordcheck"
+                          name="repeat_update_password_check"
+                          id="floating_repeat_update_password_check"
                           class="block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                           placeholder=" "
                           required=""
-                          v-model="user.updatepasswordcheck"
+                          v-model="user.update_password_check"
                         />
                         <label
-                          for="floating_repeat_updatepasswordcheck"
+                          for="floating_repeat_update_password_check"
                           class="peer-focus:font-medium absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                         >
                           비밀번호 확인
@@ -156,7 +156,7 @@
                   </div>
                 </div>
 
-                <div v-if="userEditMode == 'importHistory'">
+                <div v-if="user_edit_mode == 'importHistory'">
                   <div id="approvalContainer" class="relative sm:rounded-lg">
                     <div
                       class="p-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14"
@@ -172,7 +172,19 @@
                             id="stats-tab"
                             class="inline-block w-full p-4 rounded-tl-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600"
                           >
-                            날짜 : {{ selectedHistory.createdAt }}
+                            날짜 : {{ selected_history.createdAt }} 총 무게 :
+                            {{
+                              (
+                                (selected_history.weight *
+                                  (selected_history.grade_A +
+                                    selected_history.grade_B +
+                                    selected_history.grade_C +
+                                    selected_history.grade_D +
+                                    selected_history.grade_E)) /
+                                1000
+                              ).toFixed(2)
+                            }}
+                            KG
                           </div>
                         </div>
                         <div
@@ -187,7 +199,7 @@
                             >
                               <dt class="mb-2 text-3xl font-extrabold">품목</dt>
                               <dd class="text-xl text-gray-500 dark:text-white">
-                                {{ selectedHistory.item }}
+                                {{ selected_history.item }}
                               </dd>
                             </div>
                             <div
@@ -195,7 +207,7 @@
                             >
                               <dt class="mb-2 text-3xl font-extrabold">품종</dt>
                               <dd class="text-xl text-gray-500 dark:text-white">
-                                {{ selectedHistory.kind }}
+                                {{ selected_history.kind }}
                               </dd>
                             </div>
                             <div
@@ -205,7 +217,7 @@
                                 평균 무게
                               </dt>
                               <dd class="text-xl text-gray-500 dark:text-white">
-                                {{ selectedHistory.weight }}
+                                {{ selected_history.weight }} G
                               </dd>
                             </div>
                             <div
@@ -213,7 +225,7 @@
                             >
                               <dt class="mb-2 text-3xl font-extrabold">경도</dt>
                               <dd class="text-xl text-gray-500 dark:text-white">
-                                {{ selectedHistory.hardness }} KG
+                                {{ selected_history.hardness }}
                               </dd>
                             </div>
                             <div
@@ -221,7 +233,7 @@
                             >
                               <dt class="mb-2 text-3xl font-extrabold">당도</dt>
                               <dd class="text-xl text-gray-500 dark:text-white">
-                                {{ selectedHistory.brix }}
+                                {{ selected_history.brix }}
                               </dd>
                             </div>
                             <div
@@ -229,7 +241,7 @@
                             >
                               <dt class="mb-2 text-3xl font-extrabold">산도</dt>
                               <dd class="text-xl text-gray-500 dark:text-white">
-                                {{ selectedHistory.acidity }}
+                                {{ selected_history.acidity }}
                               </dd>
                             </div>
                             <div
@@ -239,7 +251,7 @@
                                 색상(Hunter L)
                               </dt>
                               <dd class="text-xl text-gray-500 dark:text-white">
-                                {{ selectedHistory.color }}
+                                {{ selected_history.color }}
                               </dd>
                             </div>
                             <div
@@ -249,7 +261,7 @@
                                 A 등급
                               </dt>
                               <dd class="text-xl text-gray-500 dark:text-white">
-                                {{ selectedHistory.grade_A }}
+                                {{ selected_history.grade_A }}
                               </dd>
                             </div>
                             <div
@@ -259,7 +271,7 @@
                                 B 등급
                               </dt>
                               <dd class="text-xl text-gray-500 dark:text-white">
-                                {{ selectedHistory.grade_B }}
+                                {{ selected_history.grade_B }}
                               </dd>
                             </div>
                             <div
@@ -269,7 +281,7 @@
                                 C 등급
                               </dt>
                               <dd class="text-xl text-gray-500 dark:text-white">
-                                {{ selectedHistory.grade_C }}
+                                {{ selected_history.grade_C }}
                               </dd>
                             </div>
                             <div
@@ -279,7 +291,7 @@
                                 D 등급
                               </dt>
                               <dd class="text-xl text-gray-500 dark:text-white">
-                                {{ selectedHistory.grade_D }}
+                                {{ selected_history.grade_D }}
                               </dd>
                             </div>
                             <div
@@ -289,7 +301,7 @@
                                 E 등급
                               </dt>
                               <dd class="text-xl text-gray-500 dark:text-white">
-                                {{ selectedHistory.grade_E }}
+                                {{ selected_history.grade_E }}
                               </dd>
                             </div>
                           </dl>
@@ -325,7 +337,7 @@
                               </thead>
                               <tbody>
                                 <tr
-                                  v-for="history in importHistoryList"
+                                  v-for="history in import_history_list"
                                   :key="history.idx"
                                   class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
                                 >
@@ -371,28 +383,28 @@ export default {
   data() {
     return {
       user: {
-        userid: "",
-        username: "",
+        user_id: "",
+        user_name: "",
         password: "",
-        updatepassword: "",
-        updatepasswordcheck: "",
+        update_password: "",
+        update_password_check: "",
       },
-      userEditMode: "manageInfo",
-      ImportHistoryList: [],
-      allimportHistoryList: [],
-      selectedHistory: {},
+      user_edit_mode: "manageInfo",
+      import_history_list: [],
+      all_import_history_list: [],
+      selected_history: {},
       date: new Date(),
     };
   },
   methods: {
     toManageInfoMode() {
-      this.userEditMode = "manageInfo";
+      this.user_edit_mode = "manageInfo";
     },
     toViewImportHistory() {
-      this.userEditMode = "importHistory";
+      this.user_edit_mode = "importHistory";
     },
     submitUpdateUserInfo() {
-      if (this.user.updatepassword !== this.user.updatepasswordcheck) {
+      if (this.user.update_password !== this.user.update_password_check) {
         alert("비밀번호가 일치하지 않습니다.");
         return;
       }
@@ -408,15 +420,15 @@ export default {
     getImportHistoryList() {
       this.$axios
         .post("/users/api/import/view", {
-          userid: this.$store.getters.getUserId,
-          loginUserRole: this.$store.getters.getUserRole,
+          user_id: this.$store.getters.getUserId,
+          login_user_role: this.$store.getters.getUserRole,
         })
         .then((res) => {
-          res.data.importHistoryList.forEach((element) => {
+          res.data.import_history_list.forEach((element) => {
             element["createdAt"] = this.formatDate(element["createdAt"]);
           });
-          this.importHistoryList = res.data.importHistoryList;
-          this.allimportHistoryList = res.data.importHistoryList;
+          this.import_history_list = res.data.import_history_list;
+          this.all_import_history_list = res.data.import_history_list;
         })
         .catch((err) => {
           console.log(err);
@@ -434,19 +446,19 @@ export default {
       return [year, month, day].join("-");
     },
     viewHistory(history) {
-      this.selectedHistory = history;
+      this.selected_history = history;
     },
   },
   watch: {
     //vuex 변수의 값이 변함을 감지하는 곳
     date() {
-      this.importHistoryList = [];
-      this.allimportHistoryList.forEach((element) => {
+      this.import_history_list = [];
+      this.all_import_history_list.forEach((element) => {
         if (this.formatDate(element.createdAt) == this.formatDate(this.date)) {
-          this.importHistoryList.push(element);
+          this.import_history_list.push(element);
         }
       });
-      console.log(this.importHistoryList);
+      console.log(this.import_history_list);
     },
   },
   mounted() {

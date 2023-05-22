@@ -44,9 +44,9 @@ router.beforeEach(async function (to, _, next) {
   await store.dispatch("getAlert");
   if (to.meta.requiresAuth) {
     await store.dispatch("verify");
-    const accessmessage = await store.getters.getAccessMode;
-    console.log(accessmessage);
-    if (accessmessage == 0) {
+    const access_message = await store.getters.getAccessMode;
+    console.log(access_message);
+    if (access_message == 0) {
       alert("로그인 후 이용해주세요.");
       next("/users/login");
     } else {

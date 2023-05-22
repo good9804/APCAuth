@@ -72,7 +72,7 @@
                   </div>
                 </h5>
 
-                <div v-if="userEditMode == 'manageRegisterProductMode'">
+                <div v-if="user_edit_mode == 'manageRegisterProductMode'">
                   <div id="approvalContainer" class="relative sm:rounded-lg">
                     <div class="grid grid-row-3 py-6">
                       <div class="mb-6">
@@ -168,10 +168,10 @@
                   </div>
                 </div>
 
-                <div v-if="userEditMode == 'manageProductMode'">
+                <div v-if="user_edit_mode == 'manageProductMode'">
                   <div id="approvalContainer" class="relative sm:rounded-lg">
                     <table
-                      v-if="productList"
+                      v-if="product_list"
                       class="my-3 w-full text-sm text-left text-gray-500 dark:text-gray-400"
                     >
                       <thead
@@ -191,7 +191,7 @@
                       </thead>
                       <tbody>
                         <tr
-                          v-for="product in productList"
+                          v-for="product in product_list"
                           :key="product.idx"
                           class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
                         >
@@ -282,9 +282,9 @@
                     </div>
                   </div>
                 </div>
-                <div v-else-if="userEditMode == 'manageOrderMode'">
+                <div v-else-if="user_edit_mode == 'manageOrderMode'">
                   <table
-                    v-if="requestDeclineOrders"
+                    v-if="request_decline_orders"
                     class="my-3 w-full text-sm text-left text-gray-500 dark:text-gray-400"
                   >
                     <thead
@@ -302,7 +302,7 @@
                     </thead>
                     <tbody>
                       <tr
-                        v-for="order in requestDeclineOrders"
+                        v-for="order in request_decline_orders"
                         :key="order.idx"
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
                       >
@@ -336,10 +336,10 @@
                     </tbody>
                   </table>
                 </div>
-                <div v-if="userEditMode == 'managePendingUsers'">
+                <div v-if="user_edit_mode == 'managePendingUsers'">
                   <div id="approvalContainer" class="relative sm:rounded-lg">
                     <table
-                      v-if="pendingusers.length !== 0"
+                      v-if="pending_user_list.length !== 0"
                       class="my-3 w-full text-sm text-left text-gray-500 dark:text-gray-400"
                     >
                       <thead
@@ -359,7 +359,7 @@
                       </thead>
                       <tbody>
                         <tr
-                          v-for="user in pendingusers"
+                          v-for="user in pending_user_list"
                           :key="user.idx"
                           class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
                         >
@@ -367,12 +367,12 @@
                             scope="row"
                             class="py-4 px-6 text-2xl font-bold text-gray-900 text-center whitespace-nowrap dark:text-white"
                           >
-                            {{ user["userid"] }}
+                            {{ user["user_id"] }}
                           </th>
                           <td
                             class="py-4 px-6 text-2xl font-bold text-gray-900 text-center whitespace-nowrap dark:text-white"
                           >
-                            {{ user["username"] }}
+                            {{ user["user_name"] }}
                           </td>
 
                           <td
@@ -461,7 +461,7 @@
                     </div>
                   </div>
                 </div>
-                <div v-else-if="userEditMode == 'manageUsers'">
+                <div v-else-if="user_edit_mode == 'manageUsers'">
                   <table
                     v-if="users.length !== 0"
                     class="my-3 w-full text-sm text-left text-gray-500 dark:text-gray-400"
@@ -489,12 +489,12 @@
                           scope="row"
                           class="py-4 px-6 text-2xl font-bold text-gray-900 text-center whitespace-nowrap dark:text-white"
                         >
-                          {{ user["userid"] }}
+                          {{ user["user_id"] }}
                         </th>
                         <td
                           class="py-4 px-6 text-2xl font-bold text-gray-900 text-center whitespace-nowrap dark:text-white"
                         >
-                          {{ user["username"] }}
+                          {{ user["user_name"] }}
                         </td>
 
                         <td
@@ -529,36 +529,36 @@ export default {
   name: "app",
   data() {
     return {
-      productList: [],
-      requestDeclineOrders: [],
-      pendingusers: {},
+      product_list: [],
+      request_decline_orders: [],
+      pending_user_list: {},
       loading: true,
       users: {},
-      userEditMode: "managePendingUsers",
+      user_edit_mode: "managePendingUsers",
       product: {
         product_item: "제품명",
         product_detail: "제품 설명",
         product_price: 0,
         product_made: "원산지",
       },
-      selectedFile: "",
+      selected_file: "",
     };
   },
   methods: {
     toPendingMode() {
-      this.userEditMode = "managePendingUsers";
+      this.user_edit_mode = "managePendingUsers";
     },
     toManageMode() {
-      this.userEditMode = "manageUsers";
+      this.user_edit_mode = "manageUsers";
     },
     toManageProductMode() {
-      this.userEditMode = "manageProductMode";
+      this.user_edit_mode = "manageProductMode";
     },
     toManageOrderMode() {
-      this.userEditMode = "manageOrderMode";
+      this.user_edit_mode = "manageOrderMode";
     },
     toManageRegisterProductMode() {
-      this.userEditMode = "manageRegisterProductMode";
+      this.user_edit_mode = "manageRegisterProductMode";
       console.log(1);
     },
     getUserList() {
@@ -575,7 +575,7 @@ export default {
       this.$axios
         .get("/users/api/view/pending", {})
         .then((res) => {
-          this.pendingusers = res.data;
+          this.pending_user_list = res.data;
         })
         .catch((err) => {
           alert(err);
@@ -585,7 +585,7 @@ export default {
       this.$axios
         .post("/users/api/approve", { user: user })
         .then((res) => {
-          this.pendingusers = res.data;
+          this.pending_user_list = res.data;
         })
         .catch((err) => {
           alert(err);
@@ -595,7 +595,7 @@ export default {
       this.$axios
         .post("/users/api/decline", { user: user })
         .then((res) => {
-          this.pendingusers = res.data;
+          this.pending_user_list = res.data;
         })
         .catch((err) => {
           alert(err);
@@ -615,7 +615,7 @@ export default {
       this.$axios
         .get("/product/api/admin/view", {})
         .then((res) => {
-          this.productList = res.data.productList;
+          this.product_list = res.data.product_list;
         })
         .catch((err) => {
           alert(err);
@@ -628,7 +628,7 @@ export default {
           product_detail: product["product_detail"],
         })
         .then((res) => {
-          this.productList = res.data;
+          this.product_list = res.data;
         })
         .catch((err) => {
           alert(err);
@@ -638,7 +638,7 @@ export default {
       this.$axios
         .get("/order/api/view/decline", {})
         .then((res) => {
-          this.requestDeclineOrders = res.data.orderList;
+          this.request_decline_orders = res.data.order_list;
         })
         .catch((err) => {
           alert(err);
@@ -648,19 +648,19 @@ export default {
       this.$axios
         .post("/order/api/decline/approve", { order: order })
         .then((res) => {
-          this.requestDeclineOrders = res.data.orderList;
+          this.request_decline_orders = res.data.order_list;
         })
         .catch((err) => {
           alert(err);
         });
     },
     onFileChange(event) {
-      const selectedFile = event.target.files[0]; // accessing file
-      this.selectedFile = selectedFile;
+      const selected_file = event.target.files[0]; // accessing file
+      this.selected_file = selected_file;
     },
     onUploadProduct() {
       const formData = new FormData();
-      formData.append("file", this.selectedFile); // appending file
+      formData.append("file", this.selected_file); // appending file
       formData.append("product_item", this.product["product_item"]); // appending file
       formData.append("product_detail", this.product["product_detail"]); // appending file
       formData.append("product_price", this.product["product_price"]); // appending file
@@ -683,13 +683,13 @@ export default {
     this.getRequestDeclineOrders();
   },
   watch: {
-    pendingusers() {
-      if (this.pendingusers.length === 0) {
+    pending_user_list() {
+      if (this.pending_user_list.length === 0) {
         this.loading = false;
       }
     },
-    productList() {
-      if (this.productList.length == 0) {
+    product_list() {
+      if (this.product_list.length == 0) {
         this.loading = false;
       }
     },

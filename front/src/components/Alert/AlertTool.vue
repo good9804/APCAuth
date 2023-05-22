@@ -1,6 +1,6 @@
 <template>
   <div>
-    <tr v-for="Data in AlertData" :key="Data.idx">
+    <tr v-for="Data in alert_data" :key="Data.idx">
       <div class="w-[1600px]">
         <div
           class="flex p-4 mb-4 text-xl text-white-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-white dark:border-red-800"
@@ -53,7 +53,7 @@ export default {
   components: {},
   data: () => ({
     count: 3,
-    AlertData: [],
+    alert_data: [],
   }),
   methods: {
     Close(contentindex) {
@@ -62,7 +62,7 @@ export default {
       this.changeLocalStorage();
     },
     changeLocalStorage() {
-      const contentsArray = this.$store.getters.getAlertData; //index vuex -> 로컬스토리지 적용부분 1
+      const contentsArray = this.$store.getters.getalert_data; //index vuex -> 로컬스토리지 적용부분 1
       var contents = []; //index vuex -> 로컬스토리지 적용부분 2
       contentsArray.forEach(function (item) {
         //index vuex -> 로컬스토리지 적용부분 3
@@ -72,7 +72,7 @@ export default {
     },
   },
   mounted() {
-    this.AlertData = this.$store.getters.getAlertData;
+    this.alert_data = this.$store.getters.getAlertData;
   },
   computed: {
     changeAlertData: function () {
@@ -82,7 +82,7 @@ export default {
   watch: {
     //vuex 변수의 값이 변함을 감지하는 곳
     changeAlertData(value) {
-      this.AlertData = value;
+      this.alert_data = value;
     },
   },
 };

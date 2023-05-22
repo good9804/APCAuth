@@ -13,24 +13,24 @@ router.get("/", function (req, res, next) {
 router.post("/api/signup", async (req, res) => {
   if (
     req.body.user.password == "" ||
-    req.body.user.passwordcheck == "" ||
-    req.body.user.username == "" ||
-    req.body.user.userid == ""
+    req.body.user.password_check == "" ||
+    req.body.user.user_name == "" ||
+    req.body.user.user_id == ""
   ) {
     res.json({
       success: false,
       message: "Fill the form!",
     });
   } else {
-    if (req.body.user.password != req.body.user.passwordcheck) {
+    if (req.body.user.password != req.body.user.password_check) {
       res.json({
         success: false,
         message: "Check Password!",
       });
     } else {
-      const users = await User.findOne({ userid: req.body.user.userid });
+      const users = await User.findOne({ user_id: req.body.user.user_id });
       console.log(req.body);
-      console.log(Number(req.body.user.submitrole));
+      console.log(Number(req.body.user.submit_role));
       if (users) {
         res.json({
           success: false,
@@ -38,12 +38,15 @@ router.post("/api/signup", async (req, res) => {
         });
       } else {
         const salt = bcrypt.genSaltSync();
-        const encryptedPassword = bcrypt.hashSync(req.body.user.password, salt);
+        const encrypted_password = bcrypt.hashSync(
+          req.body.user.password,
+          salt
+        );
         const new_users = new User({
-          userid: req.body.user.userid,
-          username: req.body.user.username,
-          password: encryptedPassword,
-          submitrole: req.body.user.submitrole,
+          user_id: req.body.user.user_id,
+          user_name: req.body.user.user_name,
+          password: encrypted_password,
+          submit_role: req.body.user.submit_role,
         });
         await new_users.save();
         res.json({
@@ -62,11 +65,11 @@ router.get("/api/view/pending", async (req, res) => {
 
 router.get("/api/view/info", async (req, res) => {
   try {
-    const refreshtoken = getCookiesInfo(req.headers["cookie"].split(";"))[
-      "refreshtoken"
+    const refresh_token = getCookiesInfo(req.headers["cookie"].split(";"))[
+      "refresh_token"
     ];
     //유저 조회 admin 권한
-    const admins = await User.findOne({ refreshToken: refreshtoken });
+    const admins = await User.findOne({ refresh_token: refresh_token });
     const users = await User.find({});
     if (admins.role === 0) res.send(users);
   } catch (err) {
@@ -77,7 +80,7 @@ router.get("/api/view/info", async (req, res) => {
 router.post("/api/delete", async (req, res) => {
   //유저 삭제
   try {
-    await User.deleteOne({ userid: req.body.user.userid });
+    await User.deleteOne({ user_id: req.body.user.user_id });
     const users = await User.find({});
     res.send(users);
   } catch (err) {
@@ -88,8 +91,8 @@ router.post("/api/delete", async (req, res) => {
 router.post("/api/approve", async (req, res) => {
   try {
     await User.findOneAndUpdate(
-      { userid: req.body.user.userid },
-      { role: req.body.user.submitrole }
+      { user_id: req.body.user.user_id },
+      { role: req.body.user.submit_role }
     );
     const users = await User.find({ role: 2 });
     res.send(users);
@@ -100,7 +103,7 @@ router.post("/api/approve", async (req, res) => {
 
 router.post("/api/decline", async (req, res) => {
   try {
-    await User.deleteOne({ userid: req.body.user.userid });
+    await User.deleteOne({ user_id: req.body.user.user_id });
     const users = await User.find({ role: 2 });
     res.send(users);
   } catch (err) {
@@ -109,23 +112,23 @@ router.post("/api/decline", async (req, res) => {
 });
 
 router.post("/api/login", async (req, res) => {
-  if (req.body.user.password == "" || req.body.user.userid == "") {
+  if (req.body.user.password == "" || req.body.user.user_id == "") {
     res.json({
       success: false,
       message: "Fill the form!",
     });
   } else {
-    const users = await User.findOne({ userid: req.body.user.userid });
+    const users = await User.findOne({ user_id: req.body.user.user_id });
     if (users && users.role != 2) {
-      const validPassword = await bcrypt.compare(
+      const valid_password = await bcrypt.compare(
         req.body.user.password,
         users.password
       );
-      if (validPassword) {
+      if (valid_password) {
         //jwt.sign(payload, secretOrPrivateKey, [options, callback])
-        const accesstoken = jwt.sign(
+        const access_token = jwt.sign(
           {
-            userid: users.userid,
+            user_id: users.user_id,
           },
           process.env.SECRET_KEY,
           {
@@ -133,24 +136,24 @@ router.post("/api/login", async (req, res) => {
             expiresIn: "5s", // 만료시간 15분
           }
         );
-        const refreshtoken = jwt.sign({}, process.env.SECRET_KEY2, {
+        const refresh_token = jwt.sign({}, process.env.SECRET_KEY2, {
           algorithm: "HS256",
           expiresIn: "1h", // 만료시간 1시간
         });
         await User.findOneAndUpdate(
-          { userid: req.body.user.userid },
-          { refreshToken: refreshtoken }
+          { user_id: req.body.user.user_id },
+          { refresh_token: refresh_token }
         );
 
-        res.cookie("accesstoken", accesstoken, { httpOnly: true });
-        res.cookie("refreshtoken", refreshtoken, { httpOnly: true });
+        res.cookie("access_token", access_token, { httpOnly: true });
+        res.cookie("refresh_token", refresh_token, { httpOnly: true });
         res.json({
           // 로그인 성공
           success: true,
           message: "Login Success!",
-          userinfo: {
-            loginUserId: users.userid,
-            loginUserRole: users.role,
+          user_info: {
+            login_user_id: users.user_id,
+            login_user_role: users.role,
           },
         });
       } else {
@@ -170,8 +173,8 @@ router.post("/api/login", async (req, res) => {
 
 router.get("/api/logout", async (req, res) => {
   try {
-    res.clearCookie("accesstoken");
-    res.clearCookie("refreshtoken");
+    res.clearCookie("access_token");
+    res.clearCookie("refresh_token");
     res.json({
       message: "logout",
     });
@@ -181,23 +184,23 @@ router.get("/api/logout", async (req, res) => {
 });
 
 router.post("/api/update", async (req, res) => {
-  const users = await User.findOne({ userid: req.body.user.userid });
+  const users = await User.findOne({ user_id: req.body.user.user_id });
   if (users) {
-    const validPassword = await bcrypt.compare(
+    const valid_password = await bcrypt.compare(
       req.body.user.password,
       users.password
     );
-    if (validPassword) {
+    if (valid_password) {
       const salt = bcrypt.genSaltSync();
-      const encryptedPassword = bcrypt.hashSync(
-        req.body.user.updatepassword,
+      const encrypted_password = bcrypt.hashSync(
+        req.body.user.update_password,
         salt
       );
       await User.findOneAndUpdate(
-        { userid: req.body.user.userid },
+        { user_id: req.body.user.user_id },
         {
-          username: req.body.user.username,
-          password: encryptedPassword,
+          user_name: req.body.user.user_name,
+          password: encrypted_password,
         }
       );
       res.json({
@@ -220,10 +223,10 @@ router.post("/api/update", async (req, res) => {
 
 router.get("/api/verify/access", async (req, res, next) => {
   try {
-    const accesstoken = getCookiesInfo(req.headers["cookie"].split(";"))[
-      "accesstoken"
+    const access_token = getCookiesInfo(req.headers["cookie"].split(";"))[
+      "access_token"
     ];
-    jwt.verify(accesstoken, process.env.SECRET_KEY);
+    jwt.verify(access_token, process.env.SECRET_KEY);
     res.json({ message: "접속 성공" });
   } catch (err) {
     res.json({ message: err.message });
@@ -232,14 +235,14 @@ router.get("/api/verify/access", async (req, res, next) => {
 
 router.get("/api/verify/refresh", async (req, res, next) => {
   try {
-    const refreshtoken = getCookiesInfo(req.headers["cookie"].split(";"))[
-      "refreshtoken"
+    const refresh_token = getCookiesInfo(req.headers["cookie"].split(";"))[
+      "refresh_token"
     ];
-    jwt.verify(refreshtoken, process.env.SECRET_KEY2);
-    const users = await User.findOne({ refreshToken: refreshtoken });
-    const accesstoken = jwt.sign(
+    jwt.verify(refresh_token, process.env.SECRET_KEY2);
+    const users = await User.findOne({ refresh_token: refresh_token });
+    const access_token = jwt.sign(
       {
-        userid: users.userid,
+        user_id: users.user_id,
       },
       process.env.SECRET_KEY,
       {
@@ -247,16 +250,16 @@ router.get("/api/verify/refresh", async (req, res, next) => {
         expiresIn: "5s", // 만료시간 15분
       }
     );
-    const new_refreshtoken = jwt.sign({}, process.env.SECRET_KEY2, {
+    const new_refresh_token = jwt.sign({}, process.env.SECRET_KEY2, {
       algorithm: "HS256",
       expiresIn: "1h", // 만료시간 1시간
     });
     await User.findOneAndUpdate(
-      { refreshToken: refreshtoken },
-      { refreshToken: new_refreshtoken }
+      { refresh_token: refresh_token },
+      { refresh_token: new_refresh_token }
     );
-    res.cookie("accesstoken", accesstoken, { httpOnly: true });
-    res.cookie("refreshtoken", new_refreshtoken, { httpOnly: true });
+    res.cookie("access_token", access_token, { httpOnly: true });
+    res.cookie("refresh_token", new_refresh_token, { httpOnly: true });
     res.json({ message: "유효기간 만료 되어 재발급합니다.", user: users });
   } catch (err) {
     res.send({ message: "재 로그인이 필요합니다." });
@@ -265,9 +268,9 @@ router.get("/api/verify/refresh", async (req, res, next) => {
 
 router.post("/api/import/view", async (req, res) => {
   try {
-    var userinfo;
-    userinfo = await User.find({ userid: req.body.userid });
-    res.json({ importHistoryList: userinfo[0].import_history });
+    var user_info;
+    user_info = await User.find({ user_id: req.body.user_id });
+    res.json({ import_history_list: user_info[0].import_history });
   } catch (err) {
     res.send(err);
   }

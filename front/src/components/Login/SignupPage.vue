@@ -9,12 +9,12 @@
         >
           <input
             type="text"
-            name="floating_userid"
-            id="floating_userid"
+            name="floating_user_id"
+            id="floating_user_id"
             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             required=""
-            v-model="user.userid"
+            v-model="user.user_id"
           />
           <label
             for="floating_alias"
@@ -31,7 +31,7 @@
                 id="admin"
                 type="radio"
                 value="0"
-                v-model="user.submitrole"
+                v-model="user.submit_role"
                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
               />
               <label
@@ -48,7 +48,7 @@
                 id="user"
                 type="radio"
                 value="1"
-                v-model="user.submitrole"
+                v-model="user.submit_role"
                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
               />
               <label
@@ -62,12 +62,12 @@
         <div class="relative z-0 mb-6 w-full group">
           <input
             type="text"
-            name="floating_username"
-            id="floating_username"
+            name="floating_user_name"
+            id="floating_user_name"
             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             required=""
-            v-model="user.username"
+            v-model="user.user_name"
           />
           <label
             for="floating_nmae"
@@ -103,7 +103,7 @@
               class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
               required=""
-              v-model="user.passwordcheck"
+              v-model="user.password_check"
             />
             <label
               for="floating_repeat_password"
@@ -130,11 +130,11 @@ export default {
   data() {
     return {
       user: {
-        userid: "",
-        username: "",
+        user_id: "",
+        user_name: "",
         password: "",
-        passwordcheck: "",
-        submitrole: "1",
+        password_check: "",
+        submit_role: "1",
       },
     };
   },

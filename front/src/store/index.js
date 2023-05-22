@@ -4,79 +4,79 @@ import axios from "axios";
 
 const store = createStore({
   state: {
-    loginUserId: "",
-    loginUserName: "",
-    loginUserRole: 2, //0 : admin, 1 : user, 2 : unauth
-    AccessMode: 0, //0 : 권한 없음, 1 : 권한 있음
-    AlertData: [],
+    login_user_id: "",
+    login_user_name: "",
+    login_user_role: 2, //0 : admin, 1 : user, 2 : unauth
+    access_mode: 0, //0 : 권한 없음, 1 : 권한 있음
+    alert_data: [],
   },
   getters: {
     getUserId(state) {
-      return state.loginUserId;
+      return state.login_user_id;
     },
     getUserRole(state) {
-      return state.loginUserRole;
+      return state.login_user_role;
     },
     getAccessMode(state) {
-      return state.AccessMode;
+      return state.access_mode;
     },
     getAlertData(state) {
-      return state.AlertData;
+      return state.alert_data;
     },
   },
   mutations: {
     setUserInfo(state, payload) {
       // payload : .commit을 통해 전달받은 데이터
-      state.loginUserId = payload["loginUserId"];
-      state.loginUserRole = payload["loginUserRole"];
+      state.login_user_id = payload["login_user_id"];
+      state.login_user_role = payload["login_user_role"];
     },
     setUserId(state, payload) {
-      state.loginUserId = payload;
+      state.login_user_id = payload;
     },
     setUserRole(state, payload) {
-      state.loginUserRole = payload;
+      state.login_user_role = payload;
     },
     setUserName(state, payload) {
-      state.loginUserName = payload;
+      state.login_user_name = payload;
     },
     setAccessMode(state, payload) {
-      state.AccessMode = payload;
+      state.access_mode = payload;
     },
     setAlertData(state, payload) {
-      state.AlertData.push(payload);
+      state.alert_data.push(payload);
     },
     insertAlertData(state, payload) {
       var contents = [];
       contents.push(payload);
-      state.AlertData.forEach(function (item) {
+      state.alert_data.forEach(function (item) {
         if (contents.includes(item["content"]) == false) {
           //이미 콘텐츠 안에 같은 것이 있다면
           contents.push(item["content"]);
         }
       });
-      state.AlertData = [];
+      state.alert_data = [];
       contents.forEach(function (item, index) {
-        state.AlertData.push({ index: index, content: item });
+        state.alert_data.push({ index: index, content: item });
       });
-      console.log(state.AlertData);
+      console.log(state.alert_data);
     },
     deleteAlertData(state, payload) {
-      state.AlertData.splice(payload, 1);
+      state.alert_data.splice(payload, 1);
       var contents = [];
-      state.AlertData.forEach(function (item) {
+      state.alert_data.forEach(function (item) {
         if (contents.includes(item["content"]) == false) {
           //이미 콘텐츠 안에 같은 것이 있다면
           contents.push(item["content"]);
         }
       });
-      state.AlertData = [];
+      state.alert_data = [];
       contents.forEach(function (item, index) {
-        state.AlertData.push({ index: index, content: item });
+        state.alert_data.push({ index: index, content: item });
       });
-      console.log(state.AlertData);
+      console.log(state.alert_data);
     },
     clearAlertData(state) {
-      state.AlertData = [];
+      state.alert_data = [];
     },
   },
   actions: {
@@ -87,10 +87,10 @@ const store = createStore({
           if (res.data.message == "유효기간 만료 되어 재발급합니다.") {
             context.commit("setAccessMode", 1);
             context.commit("setUserInfo", {
-              loginUserId: res.data.user.userid,
-              loginUserRole: res.data.user.role,
+              login_user_id: res.data.user.user_id,
+              login_user_role: res.data.user.role,
             });
-            context.commit("setUserName", res.data.user.username);
+            context.commit("setUserName", res.data.user.user_name);
           }
         })
         .catch((err) => {
@@ -127,10 +127,10 @@ const store = createStore({
     async getRole(context) {
       await context.commit("setUserRole", 2);
       await axios
-        .get("/users/api/verify/role", { userid: context.state.loginUserId })
+        .get("/users/api/verify/role", { user_id: context.state.login_user_id })
         .then((res) => {
           console.log(res.data);
-          context.commit("setUserRole", res.data.loginUserRole);
+          context.commit("setUserRole", res.data.login_user_role);
         })
         .catch((err) => {
           alert(err);
@@ -162,8 +162,8 @@ export default store;
 
 // 사용법
 // this.$store.commit("setUserInfo", {
-//   loginUserId: "123",
-//   loginUserRole: "5",
+//   login_user_id: "123",
+//   login_user_role: "5",
 // });
 // console.log(this.$store.getters.getUserInfo);
 // this.$store.dispatch('getData');

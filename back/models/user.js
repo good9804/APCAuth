@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 // Define Schemes
 const userSchema = new mongoose.Schema(
   {
-    userid: { type: String, unique: true },
-    username: { type: String },
+    user_id: { type: String, unique: true },
+    user_name: { type: String },
     password: { type: String },
-    refreshToken: { type: String },
-    submitrole: {
+    refresh_token: { type: String },
+    submit_role: {
       type: Number,
       default: 3, //3 : error
     },
@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema(
       type: Number,
       default: 2, //2 : ready state
     },
-    productList: [
+    product_list: [
       new mongoose.Schema(
         {
           item: { type: String },

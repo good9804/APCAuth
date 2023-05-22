@@ -47,7 +47,7 @@
                       <div
                         class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900"
                       >
-                        {{ AlertData.length }}
+                        {{ alert_data.length }}
                       </div>
                     </button>
 
@@ -102,7 +102,7 @@
                 </svg>
                 <span class="ml-3">Dashboard</span>
               </div>
-              <div v-if="showDropdown1" id="mega-menu-full-image-dropdown">
+              <div v-if="show_drop_down_1" id="mega-menu-full-image-dropdown">
                 <a
                   href="/dashboard"
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -171,7 +171,7 @@
                 <span class="flex-1 ml-3 whitespace-nowrap">User</span>
               </div>
             </button>
-            <div v-if="showDropdown2" id="mega-menu-full-image-dropdown">
+            <div v-if="show_drop_down_2" id="mega-menu-full-image-dropdown">
               <a
                 href="/users/mypage"
                 class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -239,7 +239,7 @@
                 <span class="flex-1 ml-3 whitespace-nowrap">Import</span>
               </div>
             </button>
-            <div v-if="showDropdown3" id="mega-menu-full-image-dropdown">
+            <div v-if="show_drop_down_3" id="mega-menu-full-image-dropdown">
               <a
                 href="/product/import"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -284,7 +284,7 @@
               </div>
             </button>
 
-            <div v-if="showDropdown4" id="mega-menu-full-image-dropdown">
+            <div v-if="show_drop_down_4" id="mega-menu-full-image-dropdown">
               <a
                 href="/order/main"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -337,7 +337,7 @@
                 <span class="flex-1 ml-3 whitespace-nowrap">Help</span>
               </div>
             </button>
-            <div v-if="showDropdown5" id="mega-menu-full-image-dropdown">
+            <div v-if="show_drop_down_5" id="mega-menu-full-image-dropdown">
               <a
                 href="/product/counsel"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -367,12 +367,12 @@ export default {
     login: true,
     logout: false,
     showModal: false,
-    AlertData: [],
-    showDropdown1: false,
-    showDropdown2: false,
-    showDropdown3: false,
-    showDropdown4: false,
-    showDropdown5: false,
+    alert_data: [],
+    show_drop_down_1: false,
+    show_drop_down_2: false,
+    show_drop_down_3: false,
+    show_drop_down_4: false,
+    show_drop_down_5: false,
   }),
   methods: {
     signOut() {
@@ -388,23 +388,23 @@ export default {
         });
     },
     toggleDropdown1() {
-      this.showDropdown1 = !this.showDropdown1;
+      this.show_drop_down_1 = !this.show_drop_down_1;
     },
     toggleDropdown2() {
-      this.showDropdown2 = !this.showDropdown2;
+      this.show_drop_down_2 = !this.show_drop_down_2;
     },
     toggleDropdown3() {
-      this.showDropdown3 = !this.showDropdown3;
+      this.show_drop_down_3 = !this.show_drop_down_3;
     },
     toggleDropdown4() {
-      this.showDropdown4 = !this.showDropdown4;
+      this.show_drop_down_4 = !this.show_drop_down_4;
     },
     toggleDropdown5() {
-      this.showDropdown5 = !this.showDropdown5;
+      this.show_drop_down_5 = !this.show_drop_down_5;
     },
   },
   mounted() {
-    this.AlertData = this.$store.getters.getAlertData;
+    this.alert_data = this.$store.getters.getAlertData;
   },
   computed: {
     checklogin: function () {
@@ -426,7 +426,7 @@ export default {
     },
     //vuex 변수의 값이 변함을 감지하는 곳
     changeAlertData(value) {
-      this.AlertData = value;
+      this.alert_data = value;
     },
   },
 };
