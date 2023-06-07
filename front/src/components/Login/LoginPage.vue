@@ -73,8 +73,9 @@ export default {
   },
   methods: {
     login: function () {
-      this.$emitter.emit("eventMethod", "event 전송");
+      this.$emitter.emit("eventMethod", "event 전송"); //emit(component 간의 event 통신) 확인
       this.$axios
+        //로그인
         .post("/users/api/login", {
           user: this.user,
         })

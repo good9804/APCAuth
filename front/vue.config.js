@@ -3,15 +3,19 @@ const { defineConfig } = require("@vue/cli-service");
 //   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = defineConfig({
+  // webpack 분석용
   // configureWebpack: {
   //   plugins: [new BundleAnalyzerPlugin()],
   // },
 
+  //webpack 사이즈 최적화
   chainWebpack: (config) => {
     config.plugins.delete("prefetch");
     config.plugins.delete("preload");
   },
+  //babel 관련 설정
   transpileDependencies: true,
+  //cors 해결
   devServer: {
     proxy: {
       "/api": {
@@ -24,5 +28,6 @@ module.exports = defineConfig({
     },
   },
   assetsDir: "users",
+  //배포파일 경로 지정
   outputDir: "../back/public/",
 });

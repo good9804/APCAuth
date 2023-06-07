@@ -8,7 +8,7 @@ const store = createStore({
     login_user_name: "",
     login_user_role: 2, //0 : admin, 1 : user, 2 : unauth
     access_mode: 0, //0 : 권한 없음, 1 : 권한 있음
-    alert_data: [],
+    alert_data: [], //알람 목록
   },
   getters: {
     getUserId(state) {
@@ -50,7 +50,8 @@ const store = createStore({
       contents.push(payload);
       state.alert_data.forEach(function (item) {
         if (contents.includes(item["content"]) == false) {
-          //이미 콘텐츠 안에 같은 것이 있다면
+          //중복 체크
+          //이미 콘텐츠 안에 같은 것이 없다면
           contents.push(item["content"]);
         }
       });
@@ -58,13 +59,14 @@ const store = createStore({
       contents.forEach(function (item, index) {
         state.alert_data.push({ index: index, content: item });
       });
-      console.log(state.alert_data);
+      //console.log(state.alert_data);
     },
     deleteAlertData(state, payload) {
       state.alert_data.splice(payload, 1);
       var contents = [];
       state.alert_data.forEach(function (item) {
         if (contents.includes(item["content"]) == false) {
+          //중복 체크
           //이미 콘텐츠 안에 같은 것이 있다면
           contents.push(item["content"]);
         }
@@ -73,7 +75,7 @@ const store = createStore({
       contents.forEach(function (item, index) {
         state.alert_data.push({ index: index, content: item });
       });
-      console.log(state.alert_data);
+      //console.log(state.alert_data);
     },
     clearAlertData(state) {
       state.alert_data = [];
@@ -81,6 +83,7 @@ const store = createStore({
   },
   actions: {
     async refresh(context) {
+      //refresh 토큰 확인
       await axios
         .get("/users/api/verify/refresh", {})
         .then((res) => {
@@ -98,6 +101,7 @@ const store = createStore({
         });
     },
     async verify(context) {
+      //access 토큰 확인
       await context.commit("setAccessMode", 0);
       await axios
         .get("/users/api/verify/access", {})
@@ -125,11 +129,12 @@ const store = createStore({
         });
     },
     async getRole(context) {
+      //권한 확인
       await context.commit("setUserRole", 2);
       await axios
         .get("/users/api/verify/role", { user_id: context.state.login_user_id })
         .then((res) => {
-          console.log(res.data);
+          //console.log(res.data);
           context.commit("setUserRole", res.data.login_user_role);
         })
         .catch((err) => {
@@ -137,6 +142,7 @@ const store = createStore({
         });
     },
     async getAlert(context) {
+      //알림 불러오기(local storage -> vuex)
       try {
         const contents = await localStorage.getItem("contents").split(",");
         context.commit("clearAlertData", 0);

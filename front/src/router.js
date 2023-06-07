@@ -40,13 +40,15 @@ const router = createRouter({
 import store from "./store/index";
 
 router.beforeEach(async function (to, _, next) {
-  await store.dispatch("refresh");
-  await store.dispatch("getAlert");
+  await store.dispatch("refresh"); //routing 시 Refresh 토큰 확인 후 Access 토큰 재발급
+  await store.dispatch("getAlert"); //routing 시 기존 alarm 목록 불러오기
   if (to.meta.requiresAuth) {
-    await store.dispatch("verify");
+    //admin 권한이 필요한 url
+    await store.dispatch("verify"); //권한 점검
     const access_message = await store.getters.getAccessMode;
-    console.log(access_message);
+    //console.log(access_message);
     if (access_message == 0) {
+      //권한 없음
       alert("로그인 후 이용해주세요.");
       next("/users/login");
     } else {
@@ -54,9 +56,11 @@ router.beforeEach(async function (to, _, next) {
     }
   }
   if (to.meta.requiresAdmin) {
-    const role = await store.getters.getUserRole;
-    console.log(role);
+    //관리자 콘솔로 이동을 위한 확인
+    const role = await store.getters.getUserRole; // 권한 가져오기
+    //console.log(role);
     if (role == 0) {
+      //관리자
       next();
     } else {
       alert("허용되지 않은 접근");
@@ -64,11 +68,14 @@ router.beforeEach(async function (to, _, next) {
     }
   }
   if (to.meta.requiresRole) {
+    //mypage 이동용
     const role = await store.getters.getUserRole;
     console.log(role);
     if (role == 0) {
+      //관리자
       next("/users/adminpage");
     } else if (role == 1) {
+      //일반 사용자
       next("/users/usermypage");
     } else {
       alert("로그인 후 이용해주세요.");

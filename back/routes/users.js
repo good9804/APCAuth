@@ -247,7 +247,7 @@ router.get("/api/verify/refresh", async (req, res, next) => {
       process.env.SECRET_KEY,
       {
         algorithm: "HS256",
-        expiresIn: "5s", // 만료시간 15분
+        expiresIn: "5s", // 만료시간 5초
       }
     );
     const new_refresh_token = jwt.sign({}, process.env.SECRET_KEY2, {

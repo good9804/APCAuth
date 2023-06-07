@@ -47,16 +47,14 @@
                       <div
                         class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900"
                       >
+                        <!-- 알림 개수 modal-->
                         {{ alert_data.length }}
                       </div>
                     </button>
 
                     <!-- use the modal component, pass in the prop -->
                     <ModalTool v-if="showModal" @close="showModal = false">
-                      <!--
-       you can use custom content here to overwrite
-       default content
-       -->
+                      <!-- 알림 창 생성 modal-->
                     </ModalTool>
                   </div>
                 </div>
@@ -364,8 +362,8 @@ import ModalTool from "./Modal/AlertModal";
 export default {
   components: { ModalTool },
   data: () => ({
-    login: true,
-    logout: false,
+    login: true, //login 표시
+    logout: false, //logout 표시
     showModal: false,
     alert_data: [],
     show_drop_down_1: false,
@@ -376,6 +374,7 @@ export default {
   }),
   methods: {
     signOut() {
+      //signout
       this.$axios
         .get("/users/api/logout", {})
         .then((res) => {
@@ -415,6 +414,7 @@ export default {
     },
   },
   watch: {
+    //vuex 변수의 값이 변함을 감지하는 곳
     checklogin(val) {
       if (val) {
         this.login = false;
@@ -424,7 +424,6 @@ export default {
         this.logout = false;
       }
     },
-    //vuex 변수의 값이 변함을 감지하는 곳
     changeAlertData(value) {
       this.alert_data = value;
     },
