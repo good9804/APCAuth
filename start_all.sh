@@ -1,7 +1,7 @@
 cd ..
 cd APCAuth
 sudo sh start.sh &
-
+ 
 cd ..
 cd APCDashBoard
 sudo sh start.sh &
