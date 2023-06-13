@@ -6,11 +6,11 @@
 
 ---
 
-Windows : start.bat
+(Windows) start.bat
 
 ---
 
-Linux : start.sh 
+(Linux) start.sh 
 
 ---
 
