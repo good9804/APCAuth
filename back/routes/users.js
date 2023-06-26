@@ -10,8 +10,10 @@ router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
 
+//회원가입
 router.post("/api/signup", async (req, res) => {
   if (
+    //공백체크
     req.body.user.password == "" ||
     req.body.user.password_check == "" ||
     req.body.user.user_name == "" ||
@@ -22,12 +24,14 @@ router.post("/api/signup", async (req, res) => {
       message: "Fill the form!",
     });
   } else {
+    //비밀번호 확인
     if (req.body.user.password != req.body.user.password_check) {
       res.json({
         success: false,
         message: "Check Password!",
       });
     } else {
+      //기존 유저 확인
       const users = await User.findOne({ user_id: req.body.user.user_id });
       console.log(req.body);
       console.log(Number(req.body.user.submit_role));
@@ -37,6 +41,7 @@ router.post("/api/signup", async (req, res) => {
           message: "Sign Up Failed Please use anoter ID",
         });
       } else {
+        //비밀번호 암호화
         const salt = bcrypt.genSaltSync();
         const encrypted_password = bcrypt.hashSync(
           req.body.user.password,
@@ -58,6 +63,7 @@ router.post("/api/signup", async (req, res) => {
   }
 });
 
+//회원가입 후 pending 상태인 유저 불러오기
 router.get("/api/view/pending", async (req, res) => {
   const users = await User.find({ role: 2 });
   res.send(users);
@@ -68,7 +74,7 @@ router.get("/api/view/info", async (req, res) => {
     const refresh_token = getCookiesInfo(req.headers["cookie"].split(";"))[
       "refresh_token"
     ];
-    //유저 조회 admin 권한
+    //유저 조회 후 admin 권한 확인
     const admins = await User.findOne({ refresh_token: refresh_token });
     const users = await User.find({});
     if (admins.role === 0) res.send(users);
@@ -88,6 +94,7 @@ router.post("/api/delete", async (req, res) => {
   }
 });
 
+//유저 회원가입 승인
 router.post("/api/approve", async (req, res) => {
   try {
     await User.findOneAndUpdate(
@@ -101,6 +108,7 @@ router.post("/api/approve", async (req, res) => {
   }
 });
 
+//유저 회원가입 거부
 router.post("/api/decline", async (req, res) => {
   try {
     await User.deleteOne({ user_id: req.body.user.user_id });
@@ -111,6 +119,7 @@ router.post("/api/decline", async (req, res) => {
   }
 });
 
+//로그인
 router.post("/api/login", async (req, res) => {
   if (req.body.user.password == "" || req.body.user.user_id == "") {
     res.json({
@@ -140,6 +149,7 @@ router.post("/api/login", async (req, res) => {
           algorithm: "HS256",
           expiresIn: "1h", // 만료시간 1시간
         });
+        //refresh token 재발급
         await User.findOneAndUpdate(
           { user_id: req.body.user.user_id },
           { refresh_token: refresh_token }
@@ -171,8 +181,10 @@ router.post("/api/login", async (req, res) => {
   }
 });
 
+//로그아웃
 router.get("/api/logout", async (req, res) => {
   try {
+    //token 삭제
     res.clearCookie("access_token");
     res.clearCookie("refresh_token");
     res.json({
@@ -183,6 +195,7 @@ router.get("/api/logout", async (req, res) => {
   }
 });
 
+//유저 정보 업데이트
 router.post("/api/update", async (req, res) => {
   const users = await User.findOne({ user_id: req.body.user.user_id });
   if (users) {
@@ -221,6 +234,7 @@ router.post("/api/update", async (req, res) => {
   }
 });
 
+//access token 확인
 router.get("/api/verify/access", async (req, res, next) => {
   try {
     const access_token = getCookiesInfo(req.headers["cookie"].split(";"))[
@@ -233,6 +247,7 @@ router.get("/api/verify/access", async (req, res, next) => {
   }
 });
 
+//refresh token 확인 후 access token 재발급
 router.get("/api/verify/refresh", async (req, res, next) => {
   try {
     const refresh_token = getCookiesInfo(req.headers["cookie"].split(";"))[
@@ -266,6 +281,7 @@ router.get("/api/verify/refresh", async (req, res, next) => {
   }
 });
 
+//입고 기록 불러오기
 router.post("/api/import/view", async (req, res) => {
   try {
     var user_info;

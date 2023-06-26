@@ -13,7 +13,7 @@ Kanban 주소 : https://trello.com/b/XkgyfCf6/apc-kanban
 
 use apc
 db.createCollection("users")
-db.users.insert({"userid":"1","password":"$2b$10$OQlrdbdEeQHdIL0iQXNmqe6BfWBdbnYBmWRc/Vpy4iGbVTGQYtAa2","submitrole":"0","role":"0"})
+db.users.insert({"userid":"1","password":"$2b$10$nCHf0S/OtRgPy4jUDGIJKuhyoLXJLcu3eRfV9AnVe4jdP/Z1991Nm","submitrole":"0","role":"0"})
 
 nginx 설정
 
