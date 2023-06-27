@@ -26,5 +26,3 @@ localhost 접속
 
 초기 관리자 아아디 : 1
 초기 관리자 비밀번호 : 1
-
-webhook_test_5

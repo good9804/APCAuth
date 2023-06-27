@@ -350,6 +350,27 @@
               </a>
             </div>
           </li>
+
+          <li>
+            <a
+              href="https://forms.gle/MSz2PNB7hNHP8Gae6"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              ><svg
+                fill="currentColor"
+                class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  clip-rule="evenodd"
+                  fill-rule="evenodd"
+                  d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z"
+                ></path>
+              </svg>
+              <span class="flex-1 ml-3 whitespace-nowrap">Review</span>
+            </a>
+          </li>
         </ul>
       </div>
     </aside>
