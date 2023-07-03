@@ -11,8 +11,11 @@
           농림축산식품부 인공지능 기반 신선과채류의 품질 판정 기술 개발 사업으로 디지털 트윈 시스템 개발중인 사이트입니다.<br>
 
           충주 APC를 디지털트윈화 하였으며 아래 동영상은 APC 전체 공정과정을 나타낸 것 입니다.<br>
-          현재 사이트에서 제공하는 기능들은 오른쪽 목록과 같습니다.
+          현재 사이트에서 제공하는 기능들은 오른쪽 목록과 같습니다.<br>
+          <img src="../../assets/apcRoad.png" width="1000" height="600" alt="Road" />
         </p>
+        
+        <div class= "flex justify-end">
         <ul class="text-white">
           <li>
             입고
@@ -45,6 +48,7 @@
             </p>
           </li>
         </ul>
+      </div>
         </div>
         <div
           class="grid md:grid-cols-2 md:gap-6 relative z-0 mb-6 w-full group align-items: center;"
