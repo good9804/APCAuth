@@ -5,8 +5,9 @@ const router = createRouter({
   routes: [
     //path별 component를 추가한다.
     {
-      path: "/",
-      redirect: "/users/",
+      path: "/users",
+      name: "MainPage",
+      component: () => import("@/components/Main/MainPage"),
     },
     {
       path: "/users/signup",
