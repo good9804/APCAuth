@@ -61,10 +61,10 @@ router.beforeEach(async function (to, _, next) {
     const role = await store.getters.getUserRole; // 권한 가져오기
     //console.log(role);
     if (role == 0) {
-      //관리자
+      //관리자 
       next();
     } else {
-      alert("허용되지 않은 접근");
+      alert("관리자 계정만 접근이 가능합니다.");
       next("/users/login");
     }
   }
