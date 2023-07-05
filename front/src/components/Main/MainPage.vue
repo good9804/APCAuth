@@ -35,16 +35,16 @@
             <br>
             현재 사이트에서 제공하는 기능들은 오른쪽 목록과 같습니다.<br><br>
           </p>
-          <div class="flex justify-end">
+          <div class="flex justify-center">
             <ul class="text-white">
               <li class="text-xl">
-                <a href="https://068e-118-36-223-138.ngrok-free.app/product/import/view">
+                <a href="https://09c0-118-36-223-138.ngrok-free.app/product/import/view">
                 <p class="underline">
                   입고</p></a>
                 <p class="text-base">- 회원 별 입고 기록 관리</p>
               </li>
               <li class="text-xl">
-                <a href="https://068e-118-36-223-138.ngrok-free.app/dashboard">
+                <a href="https://09c0-118-36-223-138.ngrok-free.app/dashboard">
                   <p class="underline">
                 모니터링</p></a>
                 <p class="text-base">
@@ -55,12 +55,12 @@
                 </p>
               </li>
               <li class="text-xl">
-                <a href="https://068e-118-36-223-138.ngrok-free.app/dashboard/storage">
+                <a href="https://09c0-118-36-223-138.ngrok-free.app/dashboard/storage">
                   <p class="underline">저장소</p></a>
                 <p class="text-base">- 저장고 구역 관리</p>
               </li>
               <li class="text-xl">
-                <a href="https://068e-118-36-223-138.ngrok-free.app/order/main">
+                <a href="https://09c0-118-36-223-138.ngrok-free.app/order/main">
                   <p class="underline">유통</p></a>
                 <p class="text-base">
                   - 상품 등록<br>
