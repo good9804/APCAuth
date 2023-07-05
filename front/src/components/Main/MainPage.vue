@@ -15,8 +15,7 @@
               <br>
               <br>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;제공하는 기능
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;제공하는 기능
         </span>
         
         </div>
@@ -38,13 +37,13 @@
           <div class="flex justify-center">
             <ul class="text-white">
               <li class="text-xl">
-                <a href="https://09c0-118-36-223-138.ngrok-free.app/product/import/view">
+                <a href="/product/import/view">
                 <p class="underline">
                   입고</p></a>
                 <p class="text-base">- 회원 별 입고 기록 관리</p>
               </li>
               <li class="text-xl">
-                <a href="https://09c0-118-36-223-138.ngrok-free.app/dashboard">
+                <a href="/dashboard">
                   <p class="underline">
                 모니터링</p></a>
                 <p class="text-base">
@@ -55,12 +54,12 @@
                 </p>
               </li>
               <li class="text-xl">
-                <a href="https://09c0-118-36-223-138.ngrok-free.app/dashboard/storage">
+                <a href="/dashboard/storage">
                   <p class="underline">저장소</p></a>
                 <p class="text-base">- 저장고 구역 관리</p>
               </li>
               <li class="text-xl">
-                <a href="https://09c0-118-36-223-138.ngrok-free.app/order/main">
+                <a href="/order/main">
                   <p class="underline">유통</p></a>
                 <p class="text-base">
                   - 상품 등록<br>
