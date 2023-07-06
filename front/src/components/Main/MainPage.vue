@@ -37,10 +37,11 @@
           <div class="flex justify-center">
             <ul class="text-white">
               <li class="text-xl">
-                <a href="/product/import/view">
+                <a href="/product/import">
                 <p class="underline">
                   입고</p></a>
-                <p class="text-base">- 회원 별 입고 기록 관리</p>
+                  <a href="/product/import/view">
+                <p class="text-base">- 회원 별 입고 기록 관리</p></a>
               </li>
               <li class="text-xl">
                 <a href="/dashboard">
@@ -55,17 +56,22 @@
               </li>
               <li class="text-xl">
                 <a href="/dashboard/storage">
-                  <p class="underline">저장소</p></a>
-                <p class="text-base">- 저장고 구역 관리</p>
+                  <p class="underline">저장고</p></a>
+                  <a href="dashboard/storage">
+                <p class="text-base">- 저장고 구역 관리</p></a>
               </li>
               <li class="text-xl">
                 <a href="/order/main">
                   <p class="underline">유통</p></a>
                 <p class="text-base">
-                  - 상품 등록<br>
-                  - 주문 등록<br>
-                  - 회원 문의<br>
-                  - 주문 조회<br>
+                  <a href="/users/adminpage">
+                  - 상품 등록<br></a>
+                  <a href="order/main">
+                  - 주문 등록<br></a>
+                  <a href="product/counsel">
+                  - 회원 문의<br></a>
+                  <a href="order/view">
+                  - 주문 조회<br></a>
                 </p>
               </li>
             </ul>
