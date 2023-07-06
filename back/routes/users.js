@@ -4,7 +4,7 @@ var router = express.Router();
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
+const koreanPattern = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
 /* GET users listing. */
 router.get("/", function (req, res, next) {
   res.send("respond with a resource");
@@ -22,6 +22,15 @@ router.post("/api/signup", async (req, res) => {
     res.json({
       success: false,
       message: "Fill the form!",
+    });
+  } 
+  else if (
+    //id 영문 체크
+    !koreanPattern.test(req.body.user.user_id)
+  ) {
+    res.json({
+      success: false,
+      message: "ID는 영어만 가능합니다.",
     });
   } else {
     //비밀번호 확인
