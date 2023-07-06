@@ -26,7 +26,7 @@ router.post("/api/signup", async (req, res) => {
   } 
   else if (
     //id 영문 체크
-    !koreanPattern.test(req.body.user.user_id)
+    koreanPattern.test(req.body.user.user_id)
   ) {
     res.json({
       success: false,
