@@ -30,7 +30,7 @@ router.post("/api/signup", async (req, res) => {
   ) {
     res.json({
       success: false,
-      message: "ID는 영어만 가능합니다.",
+      message: "ID는 영어+숫자 조합만 가능합니다.",
     });
   } else {
     //비밀번호 확인
