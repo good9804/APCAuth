@@ -52,7 +52,7 @@
               <li class="text-xl">
                 <a href="/dashboard/storage">
                   <p class="underline">저장고</p></a>
-                  <a href="dashboard/storage">
+                  <a href="/dashboard/storage">
                 <p class="text-base underline">- 저장고 구역 관리</p></a>
               </li>
               <li class="text-xl">
@@ -61,11 +61,11 @@
                 <p class="text-base">
                   <a href="/users/adminpage" class="underline">
                   - 상품 등록<br></a>
-                  <a href="order/main" class="underline">
+                  <a href="/order/main" class="underline">
                   - 주문 등록<br></a>
-                  <a href="product/counsel" class="underline">
+                  <a href="/product/counsel" class="underline">
                   - 회원 문의<br></a>
-                  <a href="order/view" class="underline">
+                  <a href="/order/view" class="underline">
                   - 주문 조회<br></a>
                 </p>
               </li>
