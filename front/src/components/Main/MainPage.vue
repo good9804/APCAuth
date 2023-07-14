@@ -28,11 +28,6 @@
             <br>
             충주 APC를 디지털트윈화 하였으며 <br>
             아래 동영상은 APC 전체 공정과정을 나타낸 것 입니다.<br>
-            <br>
-            <br>
-            <br>
-            <br>
-            현재 사이트에서 제공하는 기능들은 오른쪽 목록과 같습니다.<br><br>
           </p>
           <div class="flex justify-center">
             <ul class="text-white">
@@ -77,12 +72,15 @@
             </ul>
           </div>
         </div>
-        <div class="grid md:grid-cols-2 md:gap-6 relative z-0 mb-6 w-full group;">
-        <img src="../../assets/apcRoad.png" class="object-cover" height="600">
-        <iframe src="https://www.youtube.com/embed/_CjovkOcMZA" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+        <div class="flex justify-center">
+      <iframe src="https://www.youtube.com/embed/_CjovkOcMZA" width="1200" height="600" frameborder="0" allowfullscreen></iframe>
         </div>
+        <div class="flex justify-center">
+        <img src="../../assets/apcRoad.png" class="object-cover" height="600">
       </div>
+      
     </div>
+  </div>
   </div>
 </template>
 
