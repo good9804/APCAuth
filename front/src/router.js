@@ -65,7 +65,7 @@ router.beforeEach(async function (to, _, next) {
       next();
     } else {
       alert("관리자 계정만 접근이 가능합니다.");
-      next("/users/login");
+      next("/");
     }
   }
   if (to.meta.requiresRole) {
