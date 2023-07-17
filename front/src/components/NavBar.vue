@@ -98,7 +98,7 @@
                     d="M2 4.25A2.25 2.25 0 014.25 2h11.5A2.25 2.25 0 0118 4.25v8.5A2.25 2.25 0 0115.75 15h-3.105a3.501 3.501 0 001.1 1.677A.75.75 0 0113.26 18H6.74a.75.75 0 01-.484-1.323A3.501 3.501 0 007.355 15H4.25A2.25 2.25 0 012 12.75v-8.5zm1.5 0a.75.75 0 01.75-.75h11.5a.75.75 0 01.75.75v7.5a.75.75 0 01-.75.75H4.25a.75.75 0 01-.75-.75v-7.5z"
                   ></path>
                 </svg>
-                <span class="ml-3">Dashboard</span>
+                <span class="ml-3">공정 현황</span>
               </div>
               <div v-if="show_drop_down_1" id="mega-menu-full-image-dropdown">
                 <a
@@ -111,7 +111,7 @@
                   href="/dashboard/view/storage"
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <span class="ml-3">Cold Storage</span>
+                  <span class="ml-3">저온 저장고</span>
                 </a>
               </div>
             </button>
@@ -136,7 +136,7 @@
                   d="M6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM13.25 5a.75.75 0 00-.75.75v8.514a3.001 3.001 0 014.893 1.44c.37-.275.61-.719.595-1.227a24.905 24.905 0 00-1.784-8.549A1.486 1.486 0 0014.823 5H13.25zM14.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
                 ></path>
               </svg>
-              <span class="flex-1 ml-3 whitespace-nowrap">Storage</span>
+              <span class="flex-1 ml-3 whitespace-nowrap">저장고 관리</span>
             </a>
           </li>
 
@@ -166,7 +166,7 @@
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="flex-1 ml-3 whitespace-nowrap">User</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">계정</span>
               </div>
             </button>
             <div v-if="show_drop_down_2" id="mega-menu-full-image-dropdown">
@@ -174,7 +174,7 @@
                 href="/users/mypage"
                 class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">MyPage</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">내 계정 정보</span>
               </a>
 
               <div v-show="login">
@@ -182,7 +182,7 @@
                   href="/users/login"
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <span class="flex-1 ml-3 whitespace-nowrap">Sign In</span>
+                  <span class="flex-1 ml-3 whitespace-nowrap">로그인</span>
                 </a>
               </div>
               <div v-show="logout">
@@ -190,7 +190,7 @@
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
                   <button v-on:click="signOut" class="ml-3 whitespace-nowrap">
-                    Sign Out
+                    로그아웃
                   </button>
                 </a>
               </div>
@@ -198,7 +198,7 @@
                 href="/users/signup"
                 class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">Sign Up</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">회원가입</span>
               </a>
             </div>
           </li>
@@ -234,7 +234,7 @@
                     d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"
                   ></path>
                 </svg>
-                <span class="flex-1 ml-3 whitespace-nowrap">Import</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">입고 관리</span>
               </div>
             </button>
             <div v-if="show_drop_down_3" id="mega-menu-full-image-dropdown">
@@ -242,14 +242,14 @@
                 href="/product/import"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">Submit</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">입고</span>
               </a>
 
               <a
                 href="/product/import/view"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">History</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">입고내역</span>
               </a>
             </div>
           </li>
@@ -278,7 +278,7 @@
                     d="M1 1.75A.75.75 0 011.75 1h1.628a1.75 1.75 0 011.734 1.51L5.18 3a65.25 65.25 0 0113.36 1.412.75.75 0 01.58.875 48.645 48.645 0 01-1.618 6.2.75.75 0 01-.712.513H6a2.503 2.503 0 00-2.292 1.5H17.25a.75.75 0 010 1.5H2.76a.75.75 0 01-.748-.807 4.002 4.002 0 012.716-3.486L3.626 2.716a.25.25 0 00-.248-.216H1.75A.75.75 0 011 1.75zM6 17.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15.5 19a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
                   ></path>
                 </svg>
-                <span class="flex-1 ml-3 whitespace-nowrap">Order</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">주문</span>
               </div>
             </button>
 
@@ -287,21 +287,21 @@
                 href="/order/main"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">Products</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">제품 목록</span>
               </a>
 
               <a
                 href="/order/view"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">History</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">주문 내역</span>
               </a>
               <a
                 href="/order/track/info"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <span class="flex-1 ml-3 whitespace-nowrap"
-                  >Track Products</span
+                  >이력 조회</span
                 >
               </a>
             </div>
@@ -332,7 +332,7 @@
                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z"
                   ></path>
                 </svg>
-                <span class="flex-1 ml-3 whitespace-nowrap">Help</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">고객 문의</span>
               </div>
             </button>
             <div v-if="show_drop_down_5" id="mega-menu-full-image-dropdown">
@@ -340,13 +340,13 @@
                 href="/product/counsel"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">Counsel</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">1:1 문의</span>
               </a>
               <a
                 href="/product/counsel/view"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">History</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">문의 내역</span>
               </a>
             </div>
           </li>
@@ -368,7 +368,7 @@
                   d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z"
                 ></path>
               </svg>
-              <span class="flex-1 ml-3 whitespace-nowrap">Review</span>
+              <span class="flex-1 ml-3 whitespace-nowrap">리뷰</span>
             </a>
           </li>
         </ul>
