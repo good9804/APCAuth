@@ -244,6 +244,12 @@
               >
                 <span class="flex-1 ml-3 whitespace-nowrap">입고</span>
               </a>
+              <a
+                href="/product/import/input"
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                <span class="flex-1 ml-3 whitespace-nowrap">투입 관리</span>
+              </a>
 
               <a
                 href="/product/import/view"

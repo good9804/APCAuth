@@ -15,6 +15,21 @@ const userSchema = new mongoose.Schema(
       type: Number,
       default: 2, //2 : ready state
     },
+    waiting_list: [
+      new mongoose.Schema(
+        {
+          item: { type: String },
+          kind: { type: String },
+          boxcolor: { type: String },
+          kg: { type: Number },
+          quantity: { type: Number },
+          others: { type: String },
+        },
+        {
+          timestamps: true,
+        }
+      ),
+    ],
     product_list: [
       new mongoose.Schema(
         {
