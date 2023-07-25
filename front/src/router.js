@@ -59,13 +59,17 @@ router.beforeEach(async function (to, _, next) {
   if (to.meta.requiresAdmin) {
     //관리자 콘솔로 이동을 위한 확인
     const role = await store.getters.getUserRole; // 권한 가져오기
-    //console.log(role);
+
+    const access_message = await store.getters.getAccessMode;
+    console.log(role);
     if (role == 0) {
-      //관리자 
       next();
-    } else {
-      alert("관리자 계정만 접근이 가능합니다.");
-      next("/users/");
+    } else if(access_message==0){
+      alert("로그인 후 이용해주세요.");
+      next("/users/login");
+    }else {
+      alert("관리자 계정만 접근 가능합니다.");
+      next("/users/login");
     }
   }
   if (to.meta.requiresRole) {
