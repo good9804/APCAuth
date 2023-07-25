@@ -8,4 +8,28 @@ START /wait /b cmd /c install_back.bat
 START /wait /b cmd /c front.bat
 START /wait /b cmd /c back.bat
 
+cd /d "%~dp0APCProduct
+
+START /wait /b cmd /c install_front.bat
+START /wait /b cmd /c install_back.bat
+
+START /wait /b cmd /c front.bat
+START /wait /b cmd /c back.bat
+
+cd /d "%~dp0APCProduct
+
+START /wait /b cmd /c install_front.bat
+START /wait /b cmd /c install_back.bat
+
+START /wait /b cmd /c front.bat
+START /wait /b cmd /c back.bat
+
+cd /d "%~dp0APCProduct
+
+START /wait /b cmd /c install_front.bat
+START /wait /b cmd /c install_back.bat
+
+START /wait /b cmd /c front.bat
+START /wait /b cmd /c back.bat
+
 pause
