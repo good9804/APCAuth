@@ -98,20 +98,20 @@
                     d="M2 4.25A2.25 2.25 0 014.25 2h11.5A2.25 2.25 0 0118 4.25v8.5A2.25 2.25 0 0115.75 15h-3.105a3.501 3.501 0 001.1 1.677A.75.75 0 0113.26 18H6.74a.75.75 0 01-.484-1.323A3.501 3.501 0 007.355 15H4.25A2.25 2.25 0 012 12.75v-8.5zm1.5 0a.75.75 0 01.75-.75h11.5a.75.75 0 01.75.75v7.5a.75.75 0 01-.75.75H4.25a.75.75 0 01-.75-.75v-7.5z"
                   ></path>
                 </svg>
-                <span class="ml-3">공정 현황</span>
+                <span class="ml-3">공정 제어</span>
               </div>
               <div v-if="show_drop_down_1" id="mega-menu-full-image-dropdown">
                 <a
                   href="/dashboard"
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <span class="ml-3">APC</span>
+                  <span class="ml-3">품질 선별</span>
                 </a>
                 <a
                   href="/dashboard/view/storage"
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <span class="ml-3">저온 저장고</span>
+                  <span class="ml-3">저장 보관</span>
                 </a>
               </div>
             </button>
@@ -234,7 +234,7 @@
                     d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"
                   ></path>
                 </svg>
-                <span class="flex-1 ml-3 whitespace-nowrap">입고 관리</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">입고</span>
               </div>
             </button>
             <div v-if="show_drop_down_3" id="mega-menu-full-image-dropdown">
@@ -242,20 +242,20 @@
                 href="/product/import"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">입고</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">원물 등록</span>
               </a>
               <a
                 href="/product/import/input"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">투입 관리</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">공정 대기</span>
               </a>
 
               <a
                 href="/product/import/view"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">입고내역</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">처리 내역</span>
               </a>
             </div>
           </li>
