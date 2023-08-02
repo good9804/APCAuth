@@ -118,8 +118,16 @@
           </li>
 
           <li>
+            <button
+              @click="toggleDropdown6"
+              id="dropdownOffsetButton"
+              data-dropdown-toggle="dropdownBottom"
+              data-dropdown-placement="bottom"
+              data-dropdown-offset-distance="35"
+              data-dropdown-offset-skidding="0"
+              type="button"
+            >
             <a
-              href="/dashboard/storage"
               class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <svg
@@ -138,6 +146,27 @@
               </svg>
               <span class="flex-1 ml-3 whitespace-nowrap">저장고 관리</span>
             </a>
+            <div v-if="show_drop_down_6" id="mega-menu-full-image-dropdown">
+                <a
+                  href='/dashboard/storage'
+                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  <span class="ml-3">저장고 편집</span>
+                </a>
+                <a
+                  href='/dashboard/import'
+                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  <span class="ml-3">입고</span>
+                </a>
+                <a
+                  href='/dashboard/export'
+                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  <span class="ml-3">출고</span>
+                </a>
+              </div>
+            </button>
           </li>
 
           <li>
@@ -398,6 +427,7 @@ export default {
     show_drop_down_3: false,
     show_drop_down_4: false,
     show_drop_down_5: false,
+    show_drop_down_6: false,
   }),
   methods: {
     signOut() {
@@ -427,6 +457,9 @@ export default {
     },
     toggleDropdown5() {
       this.show_drop_down_5 = !this.show_drop_down_5;
+    },
+    toggleDropdown6() {
+      this.show_drop_down_6 = !this.show_drop_down_6;
     },
   },
   mounted() {
