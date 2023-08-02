@@ -72,102 +72,6 @@
     >
       <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
         <ul class="space-y-2">
-          <li>
-            <button
-              @click="toggleDropdown1"
-              id="dropdownOffsetButton"
-              data-dropdown-toggle="dropdownBottom"
-              data-dropdown-placement="bottom"
-              data-dropdown-offset-distance="35"
-              data-dropdown-offset-skidding="0"
-              type="button"
-            >
-              <div
-                class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-              >
-                <svg
-                  fill="currentColor"
-                  class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    fill-rule="evenodd"
-                    d="M2 4.25A2.25 2.25 0 014.25 2h11.5A2.25 2.25 0 0118 4.25v8.5A2.25 2.25 0 0115.75 15h-3.105a3.501 3.501 0 001.1 1.677A.75.75 0 0113.26 18H6.74a.75.75 0 01-.484-1.323A3.501 3.501 0 007.355 15H4.25A2.25 2.25 0 012 12.75v-8.5zm1.5 0a.75.75 0 01.75-.75h11.5a.75.75 0 01.75.75v7.5a.75.75 0 01-.75.75H4.25a.75.75 0 01-.75-.75v-7.5z"
-                  ></path>
-                </svg>
-                <span class="ml-3">공정 제어</span>
-              </div>
-              <div v-if="show_drop_down_1" id="mega-menu-full-image-dropdown">
-                <a
-                  href="/dashboard"
-                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  <span class="ml-3">품질 선별</span>
-                </a>
-                <a
-                  href="/dashboard/view/storage"
-                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  <span class="ml-3">저장 보관</span>
-                </a>
-              </div>
-            </button>
-          </li>
-
-          <li>
-            <button
-              @click="toggleDropdown6"
-              id="dropdownOffsetButton"
-              data-dropdown-toggle="dropdownBottom"
-              data-dropdown-placement="bottom"
-              data-dropdown-offset-distance="35"
-              data-dropdown-offset-skidding="0"
-              type="button"
-            >
-            <a
-              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-            >
-              <svg
-                aria-hidden="true"
-                class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M6.5 3c-1.051 0-2.093.04-3.125.117A1.49 1.49 0 002 4.607V10.5h9V4.606c0-.771-.59-1.43-1.375-1.489A41.568 41.568 0 006.5 3zM2 12v2.5A1.5 1.5 0 003.5 16h.041a3 3 0 015.918 0h.791a.75.75 0 00.75-.75V12H2z"
-                ></path>
-                <path
-                  d="M6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM13.25 5a.75.75 0 00-.75.75v8.514a3.001 3.001 0 014.893 1.44c.37-.275.61-.719.595-1.227a24.905 24.905 0 00-1.784-8.549A1.486 1.486 0 0014.823 5H13.25zM14.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
-                ></path>
-              </svg>
-              <span class="flex-1 ml-3 whitespace-nowrap">저장고 관리</span>
-            </a>
-            <div v-if="show_drop_down_6" id="mega-menu-full-image-dropdown">
-                <a
-                  href='/dashboard/storage'
-                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  <span class="ml-3">저장고 편집</span>
-                </a>
-                <a
-                  href='/dashboard/import'
-                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  <span class="ml-3">입고</span>
-                </a>
-                <a
-                  href='/dashboard/export'
-                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  <span class="ml-3">출고</span>
-                </a>
-              </div>
-            </button>
-          </li>
 
           <li>
             <button
@@ -288,7 +192,102 @@
               </a>
             </div>
           </li>
+          <li>
+            <button
+              @click="toggleDropdown1"
+              id="dropdownOffsetButton"
+              data-dropdown-toggle="dropdownBottom"
+              data-dropdown-placement="bottom"
+              data-dropdown-offset-distance="35"
+              data-dropdown-offset-skidding="0"
+              type="button"
+            >
+              <div
+                class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                <svg
+                  fill="currentColor"
+                  class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    fill-rule="evenodd"
+                    d="M2 4.25A2.25 2.25 0 014.25 2h11.5A2.25 2.25 0 0118 4.25v8.5A2.25 2.25 0 0115.75 15h-3.105a3.501 3.501 0 001.1 1.677A.75.75 0 0113.26 18H6.74a.75.75 0 01-.484-1.323A3.501 3.501 0 007.355 15H4.25A2.25 2.25 0 012 12.75v-8.5zm1.5 0a.75.75 0 01.75-.75h11.5a.75.75 0 01.75.75v7.5a.75.75 0 01-.75.75H4.25a.75.75 0 01-.75-.75v-7.5z"
+                  ></path>
+                </svg>
+                <span class="ml-3">공정 제어</span>
+              </div>
+              <div v-if="show_drop_down_1" id="mega-menu-full-image-dropdown">
+                <a
+                  href="/dashboard"
+                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  <span class="ml-3">품질 선별</span>
+                </a>
+                <a
+                  href="/dashboard/view/storage"
+                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  <span class="ml-3">저장 보관</span>
+                </a>
+              </div>
+            </button>
+          </li>
 
+          <li>
+            <button
+              @click="toggleDropdown6"
+              id="dropdownOffsetButton"
+              data-dropdown-toggle="dropdownBottom"
+              data-dropdown-placement="bottom"
+              data-dropdown-offset-distance="35"
+              data-dropdown-offset-skidding="0"
+              type="button"
+            >
+            <a
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              <svg
+                aria-hidden="true"
+                class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.5 3c-1.051 0-2.093.04-3.125.117A1.49 1.49 0 002 4.607V10.5h9V4.606c0-.771-.59-1.43-1.375-1.489A41.568 41.568 0 006.5 3zM2 12v2.5A1.5 1.5 0 003.5 16h.041a3 3 0 015.918 0h.791a.75.75 0 00.75-.75V12H2z"
+                ></path>
+                <path
+                  d="M6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM13.25 5a.75.75 0 00-.75.75v8.514a3.001 3.001 0 014.893 1.44c.37-.275.61-.719.595-1.227a24.905 24.905 0 00-1.784-8.549A1.486 1.486 0 0014.823 5H13.25zM14.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                ></path>
+              </svg>
+              <span class="flex-1 ml-3 whitespace-nowrap">저장고 관리</span>
+            </a>
+            <div v-if="show_drop_down_6" id="mega-menu-full-image-dropdown">
+                <a
+                  href='/dashboard/storage'
+                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  <span class="ml-3">배치</span>
+                </a>
+                <a
+                  href='/dashboard/import'
+                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  <span class="ml-3">입고</span>
+                </a>
+                <a
+                  href='/dashboard/export'
+                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  <span class="ml-3">출고</span>
+                </a>
+              </div>
+            </button>
+          </li>
           <li>
             <button
               @click="toggleDropdown4"

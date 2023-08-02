@@ -21,7 +21,7 @@ router.post("/api/signup", async (req, res) => {
   ) {
     res.json({
       success: false,
-      message: "Fill the form!",
+      message: "항목을 다 입력해주세요",
     });
   } 
   else if (
@@ -37,7 +37,7 @@ router.post("/api/signup", async (req, res) => {
     if (req.body.user.password != req.body.user.password_check) {
       res.json({
         success: false,
-        message: "Check Password!",
+        message: "비밀번호를 확인해주세요!",
       });
     } else {
       //기존 유저 확인
@@ -47,7 +47,7 @@ router.post("/api/signup", async (req, res) => {
       if (users) {
         res.json({
           success: false,
-          message: "Sign Up Failed Please use anoter ID",
+          message: "이미 사용중인 아이디 입니다.",
         });
       } else {
         //비밀번호 암호화
@@ -65,7 +65,7 @@ router.post("/api/signup", async (req, res) => {
         await new_users.save();
         res.json({
           success: true,
-          message: "Sing Up Success!",
+          message: "회원가입 성공!",
         });
       }
     }
@@ -169,7 +169,7 @@ router.post("/api/login", async (req, res) => {
         res.json({
           // 로그인 성공
           success: true,
-          message: "Login Success!",
+          message: "로그인 성공 !",
           user_info: {
             login_user_id: users.user_id,
             login_user_role: users.role,
@@ -227,7 +227,7 @@ router.post("/api/update", async (req, res) => {
       );
       res.json({
         // 업데이트 성공
-        message: "update success",
+        message: "변경 성공",
         user: users,
       });
     } else {
