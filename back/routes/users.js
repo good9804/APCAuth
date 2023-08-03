@@ -65,7 +65,7 @@ router.post("/api/signup", async (req, res) => {
         await new_users.save();
         res.json({
           success: true,
-          message: "회원가입 성공!",
+          message: "회원가입을 완료하였습니다.",
         });
       }
     }
