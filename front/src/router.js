@@ -51,7 +51,7 @@ router.beforeEach(async function (to, _, next) {
     if (access_message == 0) {
       //권한 없음
       alert("로그인 후 이용해주세요.");
-      window.location.href = 'https://19c4-118-36-223-138.ngrok-free.app/users/login';
+      next('/users/login');
     } else {
       next();
     }
@@ -66,10 +66,10 @@ router.beforeEach(async function (to, _, next) {
       next();
     } else if(access_message==0){
       alert("로그인 후 이용해주세요.");
-      window.location.href = 'https://19c4-118-36-223-138.ngrok-free.app/users/login';
+      next('/users/login');
     }else {
       alert("관리자 계정만 접근 가능합니다.");
-      window.location.href = 'https://19c4-118-36-223-138.ngrok-free.app/users/login';
+      next('/users/');
     }
   }
   if (to.meta.requiresRole) {
@@ -84,7 +84,7 @@ router.beforeEach(async function (to, _, next) {
       next("/users/usermypage");
     } else {
       alert("로그인 후 이용해주세요.");
-      window.location.href = 'https://19c4-118-36-223-138.ngrok-free.app/users/login';
+      next('/users/login');
     }
   } else {
     next();
