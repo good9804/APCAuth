@@ -107,7 +107,7 @@
                 href="/users/mypage"
                 class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">내 정보</span>
+                <span class="flex-1 ml-8 whitespace-nowrap">내 정보</span>
               </a>
 
               <div v-show="login">
@@ -115,7 +115,7 @@
                   href="/users/login"
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <span class="flex-1 ml-3 whitespace-nowrap">로그인</span>
+                  <span class="flex-1 ml-8 whitespace-nowrap">로그인</span>
                 </a>
               </div>
               <div v-show="logout">
@@ -131,7 +131,7 @@
                 href="/users/signup"
                 class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">회원가입</span>
+                <span class="flex-1 ml-8 whitespace-nowrap">회원가입</span>
               </a>
             </div>
           </li>
@@ -175,20 +175,20 @@
                 href="/product/import"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">원물 등록</span>
+                <span class="flex-1 ml-8 whitespace-nowrap">원물 등록</span>
               </a>
               <a
                 href="/product/import/input"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">공정 대기</span>
+                <span class="flex-1 ml-8 whitespace-nowrap">공정 대기</span>
               </a>
 
               <a
                 href="/product/import/view"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">처리 내역</span>
+                <span class="flex-1 ml-8 whitespace-nowrap">처리 내역</span>
               </a>
             </div>
           </li>
@@ -225,13 +225,13 @@
                   href="/dashboard"
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <span class="ml-3">품질 선별</span>
+                  <span class="ml-8">품질 선별</span>
                 </a>
                 <a
                   href="/dashboard/view/storage"
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <span class="ml-3">저장 보관</span>
+                  <span class="ml-8">저장 보관</span>
                 </a>
               </div>
             </button>
@@ -271,19 +271,19 @@
                   href='/dashboard/storage'
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <span class="ml-3">배치</span>
+                  <span class="ml-8">배치</span>
                 </a>
                 <a
                   href='/dashboard/import'
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <span class="ml-3">입고</span>
+                  <span class="ml-8">입고</span>
                 </a>
                 <a
                   href='/dashboard/export'
                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <span class="ml-3">출고</span>
+                  <span class="ml-8">출고</span>
                 </a>
               </div>
             </button>
@@ -321,20 +321,20 @@
                 href="/order/main"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">제품 목록</span>
+                <span class="flex-1 ml-8 whitespace-nowrap">제품 목록</span>
               </a>
 
               <a
                 href="/order/view"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">주문 내역</span>
+                <span class="flex-1 ml-8 whitespace-nowrap">주문 내역</span>
               </a>
               <a
                 href="/order/track/info"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap"
+                <span class="flex-1 ml-8 whitespace-nowrap"
                   >이력 조회</span
                 >
               </a>
@@ -374,13 +374,13 @@
                 href="/product/counsel"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">1:1 문의</span>
+                <span class="flex-1 ml-8 whitespace-nowrap">1:1 문의</span>
               </a>
               <a
                 href="/product/counsel/view"
                 class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-3 whitespace-nowrap">문의 내역</span>
+                <span class="flex-1 ml-8 whitespace-nowrap">문의 내역</span>
               </a>
             </div>
           </li>
