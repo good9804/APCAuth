@@ -288,6 +288,7 @@
               </div>
             </button>
           </li>
+
           <li>
             <button
               @click="toggleDropdown4"
@@ -339,6 +340,53 @@
                 >
               </a>
             </div>
+            </li>
+            <li>
+            <button
+              @click="toggleDropdown7"
+              id="dropdownOffsetButton"
+              data-dropdown-toggle="dropdownBottom"
+              data-dropdown-placement="bottom"
+              data-dropdown-offset-distance="35"
+              data-dropdown-offset-skidding="0"
+              type="button"
+            >
+              <div
+                class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+              <svg class="w-6 flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12V1m0 0L4 5m4-4 4 4m3 5v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"/>
+  </svg>
+                <span class="ml-3">출하</span>
+              </div>
+              </button>
+            </li>
+            <li>
+              <button
+              @click="toggleDropdown8"
+              id="dropdownOffsetButton"
+              data-dropdown-toggle="dropdownBottom"
+              data-dropdown-placement="bottom"
+              data-dropdown-offset-distance="35"
+              data-dropdown-offset-skidding="0"
+              type="button"
+            >
+              <div
+                class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+              >
+              <svg class="w-6 h-6 text-gray-800 dark:text-white" 
+              aria-hidden="true" 
+              xmlns="http://www.w3.org/2000/svg" fill="none" 
+              viewBox="0 0 20 16">
+              <path stroke="currentColor" 
+              stroke-linecap="round" 
+              stroke-linejoin="round" 
+              stroke-width="2" 
+              d="M15.5 10.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Zm0 0a2.225 2.225 0 0 0-1.666.75H12m3.5-.75a2.225 2.225 0 0 1 1.666.75H19V7m-7 4V3h5l2 4m-7 4H6.166a2.225 2.225 0 0 0-1.666-.75M12 11V2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v9h1.834a2.225 2.225 0 0 1 1.666-.75M19 7h-6m-8.5 3.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z"/>
+              </svg>
+                <span class="ml-3">배송</span>
+              </div>
+            </button>
           </li>
           <li>
             <button
@@ -427,6 +475,8 @@ export default {
     show_drop_down_4: false,
     show_drop_down_5: false,
     show_drop_down_6: false,
+    show_drop_down_7: false,
+    show_drop_down_8: false,
   }),
   methods: {
     signOut() {
@@ -458,6 +508,12 @@ export default {
       this.show_drop_down_5 = !this.show_drop_down_5;
     },
     toggleDropdown6() {
+      this.show_drop_down_6 = !this.show_drop_down_6;
+    },
+    toggleDropdown7() {
+      this.show_drop_down_6 = !this.show_drop_down_6;
+    },
+    toggleDropdown8() {
       this.show_drop_down_6 = !this.show_drop_down_6;
     },
   },
