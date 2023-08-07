@@ -71,7 +71,7 @@
       aria-label="Sidebar"
     >
       <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
-        <ul class="space-y-2">
+        <ul class="space-y-1">
 
           <li>
             <button
@@ -105,40 +105,40 @@
             <div v-if="show_drop_down_2" id="mega-menu-full-image-dropdown">
               <a
                 href="/users/mypage"
-                class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                class="flex items-center p-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-8 whitespace-nowrap">내 정보</span>
+                <span class="flex-1 ml-10 whitespace-nowrap">내 정보</span>
               </a>
 
               <div v-show="login">
                 <a
                   href="/users/login"
-                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  class="flex items-center p-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <span class="flex-1 ml-8 whitespace-nowrap">로그인</span>
+                  <span class="flex-1 ml-10 whitespace-nowrap">로그인</span>
                 </a>
               </div>
               <div v-show="logout">
                 <a
-                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  class="flex items-center p-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <button v-on:click="signOut" class="ml-3 whitespace-nowrap">
+                  <button v-on:click="signOut" class="ml-10 whitespace-nowrap">
                     로그아웃
                   </button>
                 </a>
               </div>
               <a
                 href="/users/signup"
-                class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                class="flex items-center p-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-8 whitespace-nowrap">회원가입</span>
+                <span class="flex-1 ml-10 whitespace-nowrap">회원가입</span>
               </a>
             </div>
           </li>
         </ul>
 
         <ul
-          class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700"
+          class="pt-2 mt-2 space-y-1 font-medium border-t border-gray-200 dark:border-gray-700"
         >
           <li>
             <button
@@ -173,22 +173,22 @@
             <div v-if="show_drop_down_3" id="mega-menu-full-image-dropdown">
               <a
                 href="/product/import"
-                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-8 whitespace-nowrap">원물 등록</span>
+                <span class="flex-1 ml-10 whitespace-nowrap">원물 등록</span>
               </a>
               <a
                 href="/product/import/input"
-                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-8 whitespace-nowrap">공정 대기</span>
+                <span class="flex-1 ml-10 whitespace-nowrap">공정 대기</span>
               </a>
 
               <a
                 href="/product/import/view"
-                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-8 whitespace-nowrap">처리 내역</span>
+                <span class="flex-1 ml-10 whitespace-nowrap">처리 내역</span>
               </a>
             </div>
           </li>
@@ -223,15 +223,15 @@
               <div v-if="show_drop_down_1" id="mega-menu-full-image-dropdown">
                 <a
                   href="/dashboard"
-                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  class="flex items-center p-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <span class="ml-8">품질 선별</span>
+                  <span class="ml-10">품질 선별</span>
                 </a>
                 <a
                   href="/dashboard/view/storage"
-                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  class="flex items-center p-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <span class="ml-8">저장 보관</span>
+                  <span class="ml-10">저장 보관</span>
                 </a>
               </div>
             </button>
@@ -269,21 +269,21 @@
             <div v-if="show_drop_down_6" id="mega-menu-full-image-dropdown">
                 <a
                   href='/dashboard/storage'
-                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  class="flex items-center p-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <span class="ml-8">배치</span>
+                  <span class="ml-10">배치</span>
                 </a>
                 <a
                   href='/dashboard/import'
-                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  class="flex items-center p-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <span class="ml-8">입고</span>
+                  <span class="ml-10">입고</span>
                 </a>
                 <a
                   href='/dashboard/export'
-                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  class="flex items-center p-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <span class="ml-8">출고</span>
+                  <span class="ml-10">출고</span>
                 </a>
               </div>
             </button>
@@ -320,22 +320,22 @@
             <div v-if="show_drop_down_4" id="mega-menu-full-image-dropdown">
               <a
                 href="/order/main"
-                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-8 whitespace-nowrap">제품 목록</span>
+                <span class="flex-1 ml-10 whitespace-nowrap">제품 목록</span>
               </a>
 
               <a
                 href="/order/view"
-                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-8 whitespace-nowrap">주문 내역</span>
+                <span class="flex-1 ml-10 whitespace-nowrap">주문 내역</span>
               </a>
               <a
                 href="/order/track/info"
-                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <span class="flex-1 ml-8 whitespace-nowrap"
+                <span class="flex-1 ml-10 whitespace-nowrap"
                   >이력 조회</span
                 >
               </a>
@@ -410,9 +410,9 @@
             <div v-if="show_drop_down_9" id="mega-menu-full-image-dropdown">
               <a
               href="https://forms.gle/MSz2PNB7hNHP8Gae6"
-              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-              <span class="flex-1 ml-8 whitespace-nowrap">리뷰</span>
+              <span class="flex-1 ml-10 whitespace-nowrap">리뷰</span>
             </a>
             </div>
           </li>
