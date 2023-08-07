@@ -389,6 +389,34 @@
             </button>
           </li>
           <li>
+              <button
+              @click="toggleDropdown9"
+              id="dropdownOffsetButton"
+              data-dropdown-toggle="dropdownBottom"
+              data-dropdown-placement="bottom"
+              data-dropdown-offset-distance="35"
+              data-dropdown-offset-skidding="0"
+              type="button"
+            >
+              <div
+                class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+              <svg class="w-6 flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+    <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z"/>
+  </svg>
+                <span class="ml-3">소비</span>
+              </div>
+            </button>
+            <div v-if="show_drop_down_9" id="mega-menu-full-image-dropdown">
+              <a
+              href="https://forms.gle/MSz2PNB7hNHP8Gae6"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+              <span class="flex-1 ml-8 whitespace-nowrap">리뷰</span>
+            </a>
+            </div>
+          </li>
+          <li>
             <button
               @click="toggleDropdown5"
               id="dropdownOffsetButton"
@@ -432,27 +460,6 @@
               </a>
             </div>
           </li>
-
-          <li>
-            <a
-              href="https://forms.gle/MSz2PNB7hNHP8Gae6"
-              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-              ><svg
-                fill="currentColor"
-                class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  clip-rule="evenodd"
-                  fill-rule="evenodd"
-                  d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z"
-                ></path>
-              </svg>
-              <span class="flex-1 ml-3 whitespace-nowrap">리뷰</span>
-            </a>
-          </li>
         </ul>
       </div>
     </aside>
@@ -477,6 +484,7 @@ export default {
     show_drop_down_6: false,
     show_drop_down_7: false,
     show_drop_down_8: false,
+    show_drop_down_9: false,
   }),
   methods: {
     signOut() {
@@ -515,6 +523,9 @@ export default {
     },
     toggleDropdown8() {
       this.show_drop_down_8 = !this.show_drop_down_8;
+    },
+    toggleDropdown9() {
+      this.show_drop_down_9 = !this.show_drop_down_9;
     },
   },
   mounted() {
