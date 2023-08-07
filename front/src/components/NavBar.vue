@@ -511,10 +511,10 @@ export default {
       this.show_drop_down_6 = !this.show_drop_down_6;
     },
     toggleDropdown7() {
-      this.show_drop_down_6 = !this.show_drop_down_6;
+      this.show_drop_down_7 = !this.show_drop_down_7;
     },
     toggleDropdown8() {
-      this.show_drop_down_6 = !this.show_drop_down_6;
+      this.show_drop_down_8 = !this.show_drop_down_8;
     },
   },
   mounted() {
