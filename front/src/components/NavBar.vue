@@ -331,14 +331,6 @@
               >
                 <span class="flex-1 ml-10 whitespace-nowrap">주문 내역</span>
               </a>
-              <a
-                href="/order/track/info"
-                class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-              >
-                <span class="flex-1 ml-10 whitespace-nowrap"
-                  >이력 조회</span
-                >
-              </a>
             </div>
             </li>
             <li>
@@ -387,6 +379,16 @@
                 <span class="ml-3">배송</span>
               </div>
             </button>
+            <div v-if="show_drop_down_8" id="mega-menu-full-image-dropdown">
+            <a
+                href="/order/track/info"
+                class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                <span class="flex-1 ml-10 whitespace-nowrap"
+                  >이력 조회</span
+                >
+              </a>
+            </div>
           </li>
           <li>
               <button
