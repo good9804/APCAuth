@@ -419,6 +419,26 @@
             </div>
           </li>
           <li>
+              <button
+              @click="toggleDropdown10"
+              id="dropdownOffsetButton"
+              data-dropdown-toggle="dropdownBottom"
+              data-dropdown-placement="bottom"
+              data-dropdown-offset-distance="35"
+              data-dropdown-offset-skidding="0"
+              type="button"
+            >
+              <div
+                class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+              <svg class="w-6 flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1v14h16M4 10l3-4 4 4 5-5m0 0h-3.207M16 5v3.207"/>
+  </svg>
+                <span class="ml-3">분석</span>
+              </div>
+            </button>
+          </li>
+          <li>
             <button
               @click="toggleDropdown5"
               id="dropdownOffsetButton"
@@ -487,6 +507,7 @@ export default {
     show_drop_down_7: false,
     show_drop_down_8: false,
     show_drop_down_9: false,
+    show_drop_down_10: false,
   }),
   methods: {
     signOut() {
@@ -528,6 +549,9 @@ export default {
     },
     toggleDropdown9() {
       this.show_drop_down_9 = !this.show_drop_down_9;
+    },
+    toggleDropdown10() {
+      this.show_drop_down_10 = !this.show_drop_down_10;
     },
   },
   mounted() {
