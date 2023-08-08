@@ -437,6 +437,28 @@
                 <span class="ml-3">분석</span>
               </div>
             </button>
+            <div v-if="show_drop_down_10" id="mega-menu-full-image-dropdown">
+              <a
+              class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+              <span class="flex-1 ml-10 whitespace-nowrap">매출 통계</span>
+            </a>
+            <a
+              class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+              <span class="flex-1 ml-10 whitespace-nowrap">주문 통계</span>
+            </a>
+            <a
+              class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+              <span class="flex-1 ml-10 whitespace-nowrap">선호 상품</span>
+            </a>
+            <a
+              class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+              <span class="flex-1 ml-10 whitespace-nowrap">이력 관리</span>
+            </a>
+            </div>
           </li>
           <li>
             <button
