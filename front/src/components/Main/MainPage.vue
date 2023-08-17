@@ -1,27 +1,17 @@
 <template>
-  <div class="flex-wrap p-2 sm:ml-64">
+  <div class="flex-wrap p-2 sm:ml-64 ">
     <div class="p-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
-      <div class="max-w-[96rem] min-w-[18rem] mx-auto">
-        <div>
-          <div class="grid md:grid-cols-3 md:gap-6 relative z-0 mb-6 w-full group;">
-            <div></div>
-            <div>
-          <img src="../../assets/chungjuLogo.png" >
+      <div class="max-w-[96rem] min-w-[18rem] mx-auto ">
+        <div class=" bg-[url('./assets/apc.png')] bg-cover bg-center" >
+          <div class="backdrop-brightness-50">
+        <div class="flex justify-center">
+          <div class="grid md:grid-cols-1 md:gap-6 relative z-0 mb-6 w-full group">
+            <div class="mx-auto">
+              <img src="../../assets/chungjuLogo.png">
+            </div>
+          </div>
         </div>
-          <span class="text-white text-2xl">
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;제공하는 기능
-        </span>
-        
-        </div>
-       
-        </div>
-        <div class="grid md:grid-cols-3 md:gap-6 relative z-0 mb-6 w-full group;">
+        <div class="grid md:grid-cols-3 md:gap-6 relative z-0 mb-6 w-full group ">
           <p class="text-white col-span-2 text-2xl flex justify-center" >
             농림축산식품부 인공지능 기반 신선 과채류의 품질 판정 기술 <br>개발 사업으로<br>
             디지털 트윈 시스템 개발중인 사이트입니다.<br>
@@ -31,6 +21,11 @@
           </p>
           <div class="flex justify-center">
             <ul class="text-white">
+
+              <span class="text-white text-2xl">
+              제공하는 기능
+              <br>
+              </span>
               <li class="text-xl">
                 <a href="/product/import">
                 <p class="underline">
@@ -72,6 +67,8 @@
             </ul>
           </div>
         </div>
+      </div>
+    </div>
         <div class="flex justify-center">
       <iframe src="https://www.youtube.com/embed/_CjovkOcMZA" width="1200" height="600" frameborder="0" allowfullscreen></iframe>
         </div>
