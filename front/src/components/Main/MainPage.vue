@@ -75,7 +75,7 @@
     <div class="text-xl text-white relative">
       최대 6개의 박스를 한 단위로 하여 APC 컨베이어 벨트에 투입이 됩니다.<br>
       사전세척기에 투입되어 박스와 원물이 분리되고 <br>원물들은 사전 세척 후 세척 건조기로 투입됩니다.<br>
-      그 후육안 품질 검사를 통한 선별 과정을 거친 후 <br>품질 선별 시스템에 들어가기 위해 정렬 과정을 거칩니다.
+      그 후 육안 품질 검사를 통한 선별 과정을 거친 후 <br>품질 선별 시스템에 들어가기 위해 정렬 과정을 거칩니다.<br>
       품질 선별 시스템 과정은 다음과 같습니다.<br>
       
       <div class="group relative cursor-pointer py-2 white-space: nowrap" >
