@@ -139,6 +139,10 @@
         <div class="flex justify-center">
         <img src="../../assets/apcRoad.png" class="object-cover" height="600">
       </div>
+      <div class="flex justify-center">
+        <img src="../../assets/apcArchitecture.png" class="object-cover" height="600">
+        <span> 시스템 아키텍처</span>
+      </div>
       
     </div>
   </div>
