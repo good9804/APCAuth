@@ -2,7 +2,7 @@
   <div class="flex-wrap p-2 sm:ml-64 ">
     <div class="p-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
       <div class="max-w-[96rem] min-w-[18rem] mx-auto ">
-        <div class=" bg-[url('./assets/apc.png')] bg-cover bg-center" >
+        <div class=" bg-[url('./assets/videocutcut.gif')] bg-cover bg-center" >
           <div class="backdrop-brightness-50">
         <div class="flex justify-center">
           <div class="grid md:grid-cols-1 md:gap-6 relative z-0 mb-6 w-full group">
