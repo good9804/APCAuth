@@ -439,11 +439,18 @@
             </button>
             <div v-if="show_drop_down_10" id="mega-menu-full-image-dropdown">
               <a
+              href="/product/statistics/storages"
+              class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+              <span class="flex-1 ml-10 whitespace-nowrap">저장고 통계</span>
+            </a>
+              <a
               href="/product/statistics/sales"
               class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
               <span class="flex-1 ml-10 whitespace-nowrap">매출 통계</span>
             </a>
+           
             <a
               class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
