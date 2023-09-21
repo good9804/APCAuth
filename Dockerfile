@@ -1,6 +1,6 @@
 # build stage
 FROM node:lts-alpine 
-RUN npx update-browserslist-db@latest
+
 WORKDIR /app
 COPY . .
 
