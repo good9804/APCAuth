@@ -5,11 +5,10 @@ WORKDIR /app
 COPY . .
 
 WORKDIR /app/front
-RUN npx browserslist@latest --update-db
 RUN npm install
 RUN npm install @popperjs/core
 
-RUN npm run build -- --verbose
+RUN npm run build
 
 WORKDIR /app/back
 COPY package*.json ./
