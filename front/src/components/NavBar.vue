@@ -444,6 +444,7 @@
               >
               <span class="flex-1 ml-10 whitespace-nowrap">매출 통계</span>
             </a>
+           
             <a
               class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >

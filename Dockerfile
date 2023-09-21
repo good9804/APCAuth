@@ -7,6 +7,7 @@ COPY . .
 WORKDIR /app/front
 RUN npm install
 RUN npm install @popperjs/core
+
 RUN npm run build
 
 WORKDIR /app/back
